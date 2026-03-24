@@ -113,9 +113,9 @@ function HomeContent({ locale }: { locale: Locale }) {
             <Link href="/lab" className={styles.tocLabLink}>
               <span className={styles.labWordWrap}>
                 {t('navigation.lab')}
-                <svg className={styles.labCircle} viewBox="0 0 110 24" fill="none">
-                  <path className={styles.labCirclePath1} d="M88 1C92 1.3 97 2.7 100 4.8C103 7 105 11 104 13.5C103 16 99 17.8 95 18.9C91 20 85 20.4 80 20.5C75 20.6 70 21 67 19.5C64 18 62 14 61.5 11.5C61 9 62 7.5 64 6.5C66 5.5 70 4 74 3C78 2 89 0.5 93 0.7C97 0.9 96 3.7 96 4" stroke="rgb(255, 0, 170)" strokeWidth="1.5" fill="none" />
-                  <path className={styles.labCirclePath2} d="M69 3.5C72 2 80 -1.5 85 -1.3C90 -1.1 97 2.5 100 4.5C103 6.5 102 9 102 10.5C102 12 101 13 99 15C97 17 93 21 89 22C85 23 78 21 74 20C70 19 65 19 63 17.5C61 16 62 12.5 63 10C64 7.5 70 5 71 4.5C72 4 70 4 70 3.5" stroke="rgb(255, 0, 170)" strokeWidth="1.5" fill="none" />
+                <svg className={styles.labCircle} viewBox="0 0 44 26" fill="none">
+                  <path className={styles.labCirclePath1} d="M30 2C34 3 39 5 41 8C43 11 43 15 40 18C37 21 31 24 24 24C17 24 9 22 5 19C1 16 0 12 1 9C2 6 6 3 11 2C16 1 25 1 30 2C34 3 39 5 41 8" stroke="rgb(255, 0, 170)" strokeWidth="1.5" fill="none" />
+                  <path className={styles.labCirclePath2} d="M12 3C16 1 23 0 28 1C33 2 38 5 40 8C42 11 42 15 39 18C36 21 30 23 24 24C18 25 10 23 6 20C2 17 0 13 1 10C2 7 7 4 10 3C13 2 14 3 12 3" stroke="rgb(255, 0, 170)" strokeWidth="1.5" fill="none" />
                 </svg>
               </span>
             </Link>
