@@ -25,6 +25,8 @@ export async function generateStaticParams() {
 
 const siteUrl = 'https://nicocantarelli.com';
 
+const ogLocaleMap: Record<string, string> = { en: 'en_US', es: 'es_AR', it: 'it_IT' };
+
 export async function generateMetadata({ params }: Props) {
   const { slug, locale } = await params;
   const project = getProjectBySlug(slug);
@@ -34,24 +36,29 @@ export async function generateMetadata({ params }: Props) {
     return { title: 'Project Not Found' };
   }
 
+  const desc = translations?.longDescription || project.longDescription;
+  const metaDesc = desc.length > 155 ? desc.slice(0, 152) + '...' : desc;
+
   const languages: Record<string, string> = {};
   locales.forEach((l) => {
     languages[l] = `${siteUrl}/${l}/projects/${slug}`;
   });
+  languages['x-default'] = `${siteUrl}/en/projects/${slug}`;
 
   return {
     title: `${project.name} - Nico Cantarelli`,
-    description: translations?.longDescription || project.longDescription,
+    description: metaDesc,
     alternates: {
       canonical: `${siteUrl}/${locale}/projects/${slug}`,
       languages,
     },
     openGraph: {
       title: `${project.name} - Nico Cantarelli`,
-      description: translations?.longDescription || project.longDescription,
+      description: metaDesc,
       url: `${siteUrl}/${locale}/projects/${slug}`,
-      locale: locale,
-      alternateLocale: locales.filter((l) => l !== locale),
+      locale: ogLocaleMap[locale],
+      alternateLocale: locales.filter((l) => l !== locale).map((l) => ogLocaleMap[l]),
+      images: project.images.length > 0 ? [{ url: `${siteUrl}${project.images[0]}`, width: 1200, height: 630 }] : undefined,
     },
   };
 }
@@ -81,6 +88,20 @@ function ProjectContent({ project, locale }: { project: Project; locale: Locale 
 
   return (
     <PageTransition>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'CreativeWork',
+            name: project.name,
+            description: translations?.longDescription || project.longDescription,
+            url: project.url,
+            author: { '@type': 'Person', name: 'Nico Cantarelli', url: 'https://nicocantarelli.com' },
+            keywords: project.tech.join(', '),
+          }),
+        }}
+      />
       <a href="#main" className="skip-link">Skip to main content</a>
       <div className={styles.page}>
         <header className={styles.header}>

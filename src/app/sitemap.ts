@@ -6,9 +6,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://nicocantarelli.com';
 
   function getUrl(path: string, locale: string) {
-    if (locale === defaultLocale) {
-      return `${baseUrl}${path}`;
-    }
     return `${baseUrl}/${locale}${path}`;
   }
 
@@ -17,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     locales.forEach((locale) => {
       languages[locale] = getUrl(path, locale);
     });
+    languages['x-default'] = `${baseUrl}/en${path}`;
     return { languages };
   }
 

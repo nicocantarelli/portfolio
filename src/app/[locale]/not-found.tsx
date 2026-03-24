@@ -1,9 +1,15 @@
+import type { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { Mascot } from '@/components/Mascot';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { LanguageToggle } from '@/components/LanguageToggle';
 import styles from './not-found.module.css';
+
+export const metadata: Metadata = {
+  title: 'Page Not Found',
+  robots: { index: false, follow: false },
+};
 
 export default function NotFound() {
   const t = useTranslations('notFound');

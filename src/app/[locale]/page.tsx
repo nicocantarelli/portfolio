@@ -21,6 +21,8 @@ type Props = {
 
 const siteUrl = 'https://nicocantarelli.com';
 
+const ogLocaleMap: Record<string, string> = { en: 'en_US', es: 'es_AR', it: 'it_IT' };
+
 export async function generateMetadata({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'metadata' });
@@ -29,6 +31,7 @@ export async function generateMetadata({ params }: Props) {
   locales.forEach((l) => {
     languages[l] = `${siteUrl}/${l}`;
   });
+  languages['x-default'] = `${siteUrl}/en`;
 
   return {
     title: { absolute: t('title') },
@@ -41,8 +44,8 @@ export async function generateMetadata({ params }: Props) {
       title: t('title'),
       description: t('description'),
       url: `${siteUrl}/${locale}`,
-      locale: locale,
-      alternateLocale: locales.filter((l) => l !== locale),
+      locale: ogLocaleMap[locale],
+      alternateLocale: locales.filter((l) => l !== locale).map((l) => ogLocaleMap[l]),
     },
   };
 }
@@ -77,6 +80,17 @@ function HomeContent({ locale }: { locale: Locale }) {
 
   return (
     <PageTransition>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'Nico Cantarelli',
+            url: 'https://nicocantarelli.com',
+          }),
+        }}
+      />
       <a href="#main" className="skip-link">Skip to main content</a>
       <div className={styles.page}>
         {/* Header */}

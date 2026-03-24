@@ -26,6 +26,8 @@ type Props = {
 
 const siteUrl = 'https://nicocantarelli.com';
 
+const ogLocaleMap: Record<string, string> = { en: 'en_US', es: 'es_AR', it: 'it_IT' };
+
 export async function generateMetadata({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'lab' });
@@ -34,13 +36,21 @@ export async function generateMetadata({ params }: Props) {
   locales.forEach((l) => {
     languages[l] = `${siteUrl}/${l}/lab`;
   });
+  languages['x-default'] = `${siteUrl}/en/lab`;
 
   return {
-    title: `Lab — Nico Cantarelli`,
+    title: `${t('title')} — Nico Cantarelli`,
     description: t('description'),
     alternates: {
       canonical: `${siteUrl}/${locale}/lab`,
       languages,
+    },
+    openGraph: {
+      title: `${t('title')} — Nico Cantarelli`,
+      description: t('description'),
+      url: `${siteUrl}/${locale}/lab`,
+      locale: ogLocaleMap[locale],
+      alternateLocale: locales.filter((l) => l !== locale).map((l) => ogLocaleMap[l]),
     },
   };
 }
