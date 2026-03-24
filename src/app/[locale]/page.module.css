@@ -73,14 +73,6 @@
   color: var(--color-text);
 }
 
-.newDot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #f4694c;
-  margin-left: 2px;
-}
-
 @media (max-width: 900px) {
   .labLinkMobile {
     display: flex;
@@ -116,27 +108,23 @@
   outline-offset: 2px;
 }
 
-.newBadge {
+.labWordWrap {
   position: relative;
   display: inline-block;
-  margin-left: 0.4rem;
-  font-size: 0.65rem;
-  font-weight: 600;
-  color: #f4694c;
-  letter-spacing: 0.02em;
 }
 
-.newCircle {
+.labCircle {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 42px;
-  height: 18px;
+  width: calc(100% + 16px);
+  height: calc(100% + 12px);
   color: #f4694c;
-  stroke-dasharray: 200;
-  stroke-dashoffset: 200;
-  animation: drawCircle 1.5s ease-out 0.5s forwards;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: drawCircle 1.2s ease-out 0.5s forwards;
+  pointer-events: none;
 }
 
 @keyframes drawCircle {
