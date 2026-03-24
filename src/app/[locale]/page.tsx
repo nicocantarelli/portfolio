@@ -113,8 +113,8 @@ function HomeContent({ locale }: { locale: Locale }) {
             <Link href="/lab" className={styles.tocLabLink}>
               <span className={styles.labWordWrap}>
                 {t('navigation.lab')}
-                <svg className={styles.labCircle} style={{ position: 'absolute', top: 0, left: 0, overflow: 'visible', pointerEvents: 'none', width: '100px', height: '100px' }}>
-                  <path d="M80 0.7C84.5 0.2 92 -0.4 96 1C100 2.4 103 6.5 104 8.9C105 11.4 104.4 13.8 102.5 15.8C100.7 17.7 97 20 92.9 20.8C88.8 21.5 82.7 20.9 77.9 20.2C73.1 19.4 66.8 17.7 64.2 16.1C61.5 14.5 61.8 12.7 62.1 10.6C62.5 8.4 62.4 4.7 66.3 3.1C70.2 1.6 82.2 1.5 85.6 1.2C89 1 87.4 1.7 87 1.7" fill="none" stroke="rgb(255, 0, 170)" strokeWidth="1.5" />
+                <svg className={styles.labCircle} viewBox="0 0 48 28" fill="none">
+                  <path d="M40 4C44 5.5 47 9 47 14C47 19 44 23 38 25C32 27 22 27 14 25C6 23 1 19 1 14C1 9 6 5.5 14 4C22 2.5 32 2.5 40 4C44 5.5 47 9 47 14C47 19 44 23 38 25C32 27 22 27 14 25" stroke="rgb(255, 0, 170)" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
               </span>
             </Link>
