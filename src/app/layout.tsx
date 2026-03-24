@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | Nico Cantarelli",
   },
   description: "Frontend developer specializing in Shopify themes, WordPress, and custom web development. I build websites from your designs.",
-  keywords: ["frontend developer", "Shopify developer", "WordPress developer", "web developer", "freelance developer"],
+  keywords: ["Nico Cantarelli", "Nicolas Cantarelli", "nicocantarelli", "frontend developer", "Shopify developer", "Shopify theme developer", "WordPress developer", "web developer", "freelance developer", "freelance web developer", "React developer", "Next.js developer", "frontend developer Argentina", "desarrollador frontend", "sviluppatore frontend", "Figma to code", "pixel perfect developer", "custom Shopify themes", "headless WordPress"],
   authors: [{ name: "Nico Cantarelli" }],
   creator: "Nico Cantarelli",
   metadataBase: new URL(siteUrl),

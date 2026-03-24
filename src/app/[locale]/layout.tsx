@@ -48,6 +48,7 @@ export default async function LocaleLayout({ children, params }: Props) {
               '@context': 'https://schema.org',
               '@type': 'Person',
               name: 'Nico Cantarelli',
+              alternateName: 'Nicolas Cantarelli',
               url: siteUrl,
               jobTitle: 'Frontend Developer',
               description: t('description'),
