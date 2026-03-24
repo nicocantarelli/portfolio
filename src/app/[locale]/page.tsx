@@ -86,7 +86,8 @@ function HomeContent({ locale }: { locale: Locale }) {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'WebSite',
-            name: 'Nico Cantarelli',
+            name: 'Nico Cantarelli — Frontend Developer',
+            alternateName: 'Nico Cantarelli',
             url: 'https://nicocantarelli.com',
           }),
         }}

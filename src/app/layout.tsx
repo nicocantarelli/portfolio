@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    siteName: "Nico Cantarelli",
+    siteName: "Nico Cantarelli — Frontend Developer",
     title: "Nico Cantarelli - Frontend Developer",
     description: "Frontend developer specializing in Shopify themes, WordPress, and custom web development. I build websites from your designs.",
   },
