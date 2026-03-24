@@ -119,15 +119,21 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: calc(100% + 14px);
-  height: calc(100% + 10px);
+  height: calc(100% + 14px);
   overflow: visible;
   pointer-events: none;
 }
 
-.labCircle path {
-  stroke-dasharray: 250;
-  stroke-dashoffset: 250;
-  animation: drawCircle 0.8s ease-out 0.5s forwards;
+.labCirclePath1 {
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  animation: drawCircle 0.4s ease-out 0.5s forwards;
+}
+
+.labCirclePath2 {
+  stroke-dasharray: 110;
+  stroke-dashoffset: 110;
+  animation: drawCircle 0.4s ease-out 0.9s forwards;
 }
 
 @keyframes drawCircle {
