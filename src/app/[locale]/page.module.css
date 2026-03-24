@@ -113,18 +113,10 @@
   display: inline-block;
 }
 
-.labCircle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: calc(100% + 16px);
-  height: calc(100% + 12px);
-  color: #f4694c;
-  stroke-dasharray: 300;
-  stroke-dashoffset: 300;
-  animation: drawCircle 1.2s ease-out 0.5s forwards;
-  pointer-events: none;
+.labCircle path {
+  stroke-dasharray: 114;
+  stroke-dashoffset: 114;
+  animation: drawCircle 0.4s ease-out 0.5s forwards;
 }
 
 @keyframes drawCircle {
