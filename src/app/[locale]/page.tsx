@@ -115,7 +115,7 @@ function HomeContent({ locale }: { locale: Locale }) {
                 {t('navigation.lab')}
                 <svg className={styles.labCircle} viewBox="0 0 44 26" fill="none">
                   <path className={styles.labCirclePath1} d="M30 2C34 3 39 5 41 8C43 11 43 15 40 18C37 21 31 24 24 24C17 24 9 22 5 19C1 16 0 12 1 9C2 6 6 3 11 2C16 1 25 1 30 2C34 3 39 5 41 8" stroke="rgb(255, 0, 170)" strokeWidth="1.5" fill="none" />
-                  <path className={styles.labCirclePath2} d="M12 3C16 1 23 0 28 1C33 2 38 5 40 8C42 11 42 15 39 18C36 21 30 23 24 24C18 25 10 23 6 20C2 17 0 13 1 10C2 7 7 4 10 3C13 2 14 3 12 3" stroke="rgb(255, 0, 170)" strokeWidth="1.5" fill="none" />
+                  <path className={styles.labCirclePath2} d="M14 5C18 3 24 2 29 3C34 4 38 7 39 10C40 13 39 16 36 18.5C33 21 27 22 22 22C17 22 11 21 7 18.5C3 16 2 13 2.5 10.5C3 8 7 5.5 11 4.5C15 3.5 16 5 14 5" stroke="rgb(255, 0, 170)" strokeWidth="1.5" fill="none" />
                 </svg>
               </span>
             </Link>
