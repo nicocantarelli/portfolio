@@ -56,7 +56,7 @@ export function Mascot() {
   }, []);
 
   return (
-    <div ref={mascotRef} className={styles.mascot}>
+    <div ref={mascotRef} className={styles.mascot} aria-hidden="true">
       <span className={styles.brace}>{'{'}</span>
       <span
         className={styles.eyes}

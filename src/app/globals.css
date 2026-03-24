@@ -4,17 +4,18 @@
 
 :root {
   /* Colors - Light Mode */
-  --color-bg: #fdfdfc;
-  --color-bg-secondary: #f8f7f6;
-  --color-text: #1a1a1a;
-  --color-text-secondary: rgba(26, 26, 26, 0.6);
-  --color-border: rgba(26, 26, 26, 0.1);
+  --color-bg: #FFFBF5;
+  --color-bg-secondary: #f5f1eb;
+  --color-text: #191919;
+  --color-text-secondary: rgba(25, 25, 25, 0.6);
+  --color-border: rgba(25, 25, 25, 0.1);
 
   /* Accent Colors */
   --color-accent-blue: #3b82f6;
   --color-accent-green: #22c55e;
   --color-accent-orange: #f59e0b;
   --color-accent-pink: #ec4899;
+
 
   /* Highlight (marker effect) */
   --color-highlight: rgba(251, 191, 36, 0.3);
@@ -38,15 +39,21 @@
   /* Transitions */
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
+
+  /* Lab */
+  --lab-max-width: 900px;
+  --lab-demo-bg: var(--color-bg-secondary);
+  --lab-demo-radius: 12px;
 }
 
 /* Dark Mode */
 [data-theme="dark"] {
-  --color-bg: #0a0a0a;
-  --color-bg-secondary: #141414;
-  --color-text: #ededed;
-  --color-text-secondary: rgba(237, 237, 237, 0.6);
-  --color-border: rgba(237, 237, 237, 0.1);
+  --color-bg: #191919;
+  --color-bg-secondary: #222222;
+
+  --color-text: #FFFBF5;
+  --color-text-secondary: rgba(255, 251, 245, 0.6);
+  --color-border: rgba(255, 251, 245, 0.1);
   --color-highlight: rgba(251, 191, 36, 0.2);
 }
 
@@ -66,6 +73,26 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+}
+
+/* Skip to content link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 9999;
+  padding: 1rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 2px solid var(--color-accent-blue);
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
 }
 
 body {
@@ -196,6 +223,7 @@ a {
 
 section {
   padding: var(--space-lg) 0;
+  scroll-margin-top: 72px;
 }
 
 @media (min-width: 768px) {
@@ -211,4 +239,32 @@ section {
 ::selection {
   background: var(--color-accent-blue);
   color: white;
+}
+
+/* ================================
+   View Transitions (Theme Toggle)
+   ================================ */
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+  animation: circleReveal 0.5s ease-out;
+}
+
+@keyframes circleReveal {
+  from {
+    clip-path: circle(0% at var(--toggle-x, 50%) var(--toggle-y, 50%));
+  }
+  to {
+    clip-path: circle(150% at var(--toggle-x, 50%) var(--toggle-y, 50%));
+  }
 }

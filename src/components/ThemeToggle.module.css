@@ -10,9 +10,16 @@
   cursor: pointer;
   color: var(--color-text-secondary);
   transition: border-color var(--transition-fast), color var(--transition-fast);
+  position: relative;
+  z-index: 101;
 }
 
 .toggle:hover {
   border-color: var(--color-text-secondary);
   color: var(--color-text);
+}
+
+.toggle:focus-visible {
+  outline: 2px solid var(--color-accent-blue);
+  outline-offset: 2px;
 }

@@ -1,0 +1,200 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 450px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg) var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: none;
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.7),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(0, 0, 0, 0.03),
+    0 1px 2px 0 rgba(0, 0, 0, 0.04),
+    0 2px 4px 0 rgba(0, 0, 0, 0.03),
+    0 4px 8px 0 rgba(0, 0, 0, 0.02);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+:global([data-theme="dark"]) .btn {
+  border: none;
+  background: var(--color-bg);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.03),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 0 0 1px rgba(0, 0, 0, 0.1),
+    0 2px 2px 0 rgba(0, 0, 0, 0.1),
+    0 4px 4px 0 rgba(0, 0, 0, 0.1),
+    0 8px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  border-color: var(--color-accent-blue);
+  transform: translateY(-2px);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent-blue);
+  outline-offset: 2px;
+}
+
+.btnIcon {
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.btn:hover .btnIcon {
+  color: var(--color-accent-blue);
+}
+
+.btnLabel {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+/* Drawer content styles */
+.navList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.navItem {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  border-radius: 6px;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  cursor: pointer;
+}
+
+.navItem:hover {
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.formLabel {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.formInput {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  transition: border-color var(--transition-fast);
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: var(--color-accent-blue);
+}
+
+.formTextarea {
+  composes: formInput;
+  min-height: 80px;
+  resize: vertical;
+}
+
+.footerBtn {
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btnPrimary {
+  composes: footerBtn;
+  color: white;
+  background: var(--color-accent-blue);
+  border: none;
+}
+
+.btnPrimary:hover {
+  opacity: 0.9;
+}
+
+.btnGhost {
+  composes: footerBtn;
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: 1px solid var(--color-border);
+}
+
+.btnGhost:hover {
+  color: var(--color-text);
+  border-color: var(--color-text-secondary);
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.85rem;
+}
+
+.detailLabel {
+  color: var(--color-text-secondary);
+}
+
+.detailValue {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.scrollBox {
+  height: 48px;
+  border-radius: 8px;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.snapLabel {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+}

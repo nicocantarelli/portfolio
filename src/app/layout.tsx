@@ -16,7 +16,6 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   openGraph: {
     type: "website",
-    locale: "en_US",
     url: siteUrl,
     siteName: "Nico Cantarelli",
     title: "Nico Cantarelli - Frontend Developer",
@@ -33,13 +32,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+type Props = {
   children: React.ReactNode;
-}>) {
+};
+
+export default function RootLayout({ children }: Props) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -62,7 +61,9 @@ export default function RootLayout({
               jobTitle: "Frontend Developer",
               description: "Frontend developer specializing in Shopify themes, WordPress, and custom web development.",
               knowsAbout: ["Shopify", "WordPress", "React", "Next.js", "JavaScript", "CSS", "Web Development"],
-              sameAs: [],
+              sameAs: [
+                "https://x.com/bycantarelli",
+              ],
             }),
           }}
         />

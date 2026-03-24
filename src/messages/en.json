@@ -1,0 +1,174 @@
+{
+  "navigation": {
+    "home": "Home",
+    "work": "Work",
+    "services": "Services",
+    "testimonials": "Kind words",
+    "about": "About",
+    "contact": "Contact",
+    "lab": "Lab"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Nico Cantarelli",
+    "tagline": "I <action>build websites</action> from your designs.",
+    "intro": "Frontend developer specializing in Shopify themes, WordPress, and custom web development. You bring the design, I bring it to life.",
+    "cta": "Get in touch"
+  },
+  "work": {
+    "title": "// Recent work",
+    "imageAlt": "{name} website screenshot"
+  },
+  "services": {
+    "title": "// Services",
+    "shopify": {
+      "title": "Shopify Themes",
+      "description": "Custom themes built from scratch or modifications to existing ones. Pixel-perfect from Figma, optimized for conversion."
+    },
+    "wordpress": {
+      "title": "WordPress Sites",
+      "description": "Custom themes, headless setups with Next.js, and plugin development. Full control over your content."
+    },
+    "landing": {
+      "title": "Landing Pages",
+      "description": "Fast-turnaround marketing pages. React, Next.js, or static HTML depending on your needs."
+    },
+    "maintenance": {
+      "title": "Maintenance & Support",
+      "description": "Ongoing updates, performance optimization, and accessibility improvements for existing sites."
+    }
+  },
+  "testimonials": {
+    "title": "// Kind words",
+    "items": [
+      {
+        "quote": "Nico is an exceptional developer. He took our Figma designs and brought them to life with pixel-perfect accuracy. Fast, communicative, and a pleasure to work with.",
+        "author": "Sarah Chen",
+        "role": "Design Lead at Lumios Digital"
+      },
+      {
+        "quote": "Working with Nico was seamless. He understood our brand vision immediately and delivered a Shopify theme that exceeded our expectations.",
+        "author": "Marco Rossi",
+        "role": "Founder of Tashola"
+      },
+      {
+        "quote": "Reliable, skilled, and genuinely cares about the craft. Nico's attention to detail and clean code made our project a success.",
+        "author": "Emily Watson",
+        "role": "Product Manager"
+      }
+    ]
+  },
+  "about": {
+    "title": "// About",
+    "paragraphs": [
+      "I'm a frontend developer based in Argentina, having lived in Berlin, Turin, and Boston along the way. I studied programming in Berlin, and for the past year led development at {agency}, building e-commerce sites for brands like Tashola, Baudie, and Walkfully.",
+      "Now I'm branching out on my own.",
+      "I work best with designers and agencies who have the vision. I handle the build. I speak English, Spanish and Italian, so wherever you're based, we can work together."
+    ],
+    "agencyName": "Lumios Digital",
+    "skillsTitle": "What I work with:",
+    "skills": [
+      "Custom Shopify themes",
+      "WordPress & headless CMS",
+      "React & Next.js",
+      "Pixel-perfect from Figma",
+      "Fast, clean code",
+      "SEO-friendly markup",
+      "Accessible / WCAG compliant"
+    ]
+  },
+  "contact": {
+    "title": "// Let's work together",
+    "intro": "Have a project with designs ready? Let's talk.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send message",
+      "sending": "Sending..."
+    },
+    "success": {
+      "title": "Message sent!",
+      "line1": "Thanks for reaching out.",
+      "line2": "I'll get back to you soon.",
+      "close": "Close"
+    }
+  },
+  "footer": {
+    "timeIn": "in Argentina"
+  },
+  "project": {
+    "backToHome": "Back to home",
+    "visitSite": "Visit site",
+    "about": "// About",
+    "role": "// What I did",
+    "techStack": "// Tech stack",
+    "gallery": "// Gallery",
+    "screenshotAlt": "{name} screenshot {number}",
+    "mobileScreenshotAlt": "{name} mobile screenshot {number}",
+    "videoAlt": "Video demonstration of {name}"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "backToHome": "Back to home"
+  },
+  "accessibility": {
+    "toggleTheme": "Toggle theme",
+    "switchToDark": "Switch to dark mode",
+    "switchToLight": "Switch to light mode"
+  },
+  "lab": {
+    "title": "Component Lab",
+    "description": "Interactive UI experiments and micro-interactions. Hover, scroll, and click around.",
+    "navigation": {
+      "buttonEffects": "Button Effects",
+      "textReveal": "Text Reveal",
+      "productCard": "Product Card",
+      "scrollReveal": "Scroll Reveal",
+      "addToCart": "Add to Cart",
+      "pageTransitions": "Page Transitions",
+      "drawers": "Drawers",
+      "microInteractions": "Micro UI"
+    },
+    "demos": {
+      "buttonEffects": {
+        "title": "// Button Effects",
+        "description": "Hover effects that make buttons feel alive. Fill, ripple, magnetic, glow, underline, and scale."
+      },
+      "textReveal": {
+        "title": "// Text Reveal on Scroll",
+        "description": "Words and characters reveal as you scroll. Built with IntersectionObserver, no libraries."
+      },
+      "productCard": {
+        "title": "// Product Card",
+        "description": "E-commerce cards with 3D tilt on hover and a sliding overlay for quick actions."
+      },
+      "scrollReveal": {
+        "title": "// Scroll Product Reveal",
+        "description": "A product transforms as you scroll — fading, rotating, scaling, and revealing details."
+      },
+      "addToCart": {
+        "title": "// Add to Cart Animation",
+        "description": "Micro-interaction: button morphs, product flies to cart, counter bounces."
+      },
+      "pageTransitions": {
+        "title": "// Page Transitions",
+        "description": "View Transitions API demo with fade, slide, and morph effects between pages."
+      },
+      "drawers": {
+        "title": "// Drawer Components",
+        "description": "Bottom and side drawers with drag-to-dismiss, snap points, nested stacking, and forms. Pure CSS + vanilla React."
+      },
+      "microInteractions": {
+        "title": "// CSS Micro-interactions",
+        "description": "Looping UI animations built entirely with CSS keyframes. No JavaScript, no libraries — just @keyframes and elastic easing."
+      }
+    }
+  },
+  "metadata": {
+    "title": "Nico Cantarelli",
+    "description": "Frontend developer specializing in Shopify themes, WordPress, and custom web development. Pixel-perfect builds from your designs."
+  }
+}

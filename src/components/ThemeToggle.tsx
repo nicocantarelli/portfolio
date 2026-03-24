@@ -1,15 +1,15 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './ThemeToggle.module.css';
 
 export function ThemeToggle() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [mounted, setMounted] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     setMounted(true);
-    // Check for saved preference or system preference
     const saved = localStorage.getItem('theme') as 'light' | 'dark' | null;
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const initialTheme = saved || (systemPrefersDark ? 'dark' : 'light');
@@ -17,20 +17,40 @@ export function ThemeToggle() {
     document.documentElement.setAttribute('data-theme', initialTheme);
   }, []);
 
-  const toggleTheme = () => {
+  const toggleTheme = async () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+
+    // Get button position for the circular animation origin
+    if (buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+      document.documentElement.style.setProperty('--toggle-x', `${x}px`);
+      document.documentElement.style.setProperty('--toggle-y', `${y}px`);
+    }
+
+    // Check if View Transitions API is supported
+    if (document.startViewTransition) {
+      document.startViewTransition(() => {
+        setTheme(newTheme);
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+      });
+    } else {
+      // Fallback for browsers without View Transitions
+      setTheme(newTheme);
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
   };
 
-  // Avoid hydration mismatch
   if (!mounted) {
     return <button className={styles.toggle} aria-label="Toggle theme" />;
   }
 
   return (
     <button
+      ref={buttonRef}
       className={styles.toggle}
       onClick={toggleTheme}
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}

@@ -1,0 +1,38 @@
+.nav {
+  position: fixed;
+  top: calc(56px + 5rem);
+  left: 5rem;
+  height: fit-content;
+}
+
+.list {
+  list-style: none;
+}
+
+.link {
+  display: block;
+  padding: 0.25rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--color-text);
+}
+
+.active {
+  color: var(--color-text);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--color-accent-blue);
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .nav {
+    display: none;
+  }
+}

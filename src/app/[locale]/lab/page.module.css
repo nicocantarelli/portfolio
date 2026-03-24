@@ -1,0 +1,113 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-bg);
+  border-bottom: none;
+  box-shadow:
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.06),
+    0 1px 2px 0 rgba(0, 0, 0, 0.03);
+}
+
+:global([data-theme="dark"]) .header {
+  border-bottom: none;
+  box-shadow:
+    inset 0 -1px 0 0 rgba(255, 255, 255, 0.03),
+    0 1px 0 0 rgba(0, 0, 0, 0.1),
+    0 2px 4px 0 rgba(0, 0, 0, 0.08);
+}
+
+.headerInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+  max-width: var(--lab-max-width);
+}
+
+.headerControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Layout */
+
+.layout {
+  position: relative;
+  max-width: var(--lab-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.content {
+  width: 100%;
+}
+
+/* Back link */
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  padding: 0.5rem 0;
+  margin-bottom: var(--space-lg);
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast), gap var(--transition-fast), transform var(--transition-fast);
+}
+
+.backLink:hover {
+  color: var(--color-text);
+  transform: translateY(-1px);
+}
+
+.backLink svg {
+  transition: transform var(--transition-fast);
+}
+
+.backLink:hover svg {
+  transform: translateX(-3px);
+}
+
+.backLink:focus-visible {
+  outline: 2px solid var(--color-accent-blue);
+  outline-offset: 2px;
+}
+
+/* Intro / Hero */
+
+.intro {
+  padding: var(--space-2xl) 0 var(--space-xl);
+}
+
+.intro h1 {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.intro p {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+/* Footer */
+
+.footer {
+  margin-top: auto;
+  padding: var(--space-xl) 0;
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+}

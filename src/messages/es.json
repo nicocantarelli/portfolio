@@ -1,0 +1,174 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "work": "Proyectos",
+    "services": "Servicios",
+    "testimonials": "Testimonios",
+    "about": "Sobre mí",
+    "contact": "Contacto",
+    "lab": "Lab"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "name": "Nico Cantarelli",
+    "tagline": "Yo <action>creo sitios web</action> desde tus diseños.",
+    "intro": "Desarrollador frontend especializado en temas de Shopify, WordPress y desarrollo web personalizado. Vos traés el diseño, yo le doy vida.",
+    "cta": "Contactame"
+  },
+  "work": {
+    "title": "// Proyectos recientes",
+    "imageAlt": "Captura de pantalla del sitio {name}"
+  },
+  "services": {
+    "title": "// Servicios",
+    "shopify": {
+      "title": "Temas de Shopify",
+      "description": "Temas personalizados desde cero o modificaciones a existentes. Pixel-perfect desde Figma, optimizados para conversión."
+    },
+    "wordpress": {
+      "title": "Sitios WordPress",
+      "description": "Temas personalizados, configuraciones headless con Next.js y desarrollo de plugins. Control total sobre tu contenido."
+    },
+    "landing": {
+      "title": "Landing Pages",
+      "description": "Páginas de marketing de entrega rápida. React, Next.js o HTML estático según tus necesidades."
+    },
+    "maintenance": {
+      "title": "Mantenimiento y Soporte",
+      "description": "Actualizaciones continuas, optimización de rendimiento y mejoras de accesibilidad para sitios existentes."
+    }
+  },
+  "testimonials": {
+    "title": "// Testimonios",
+    "items": [
+      {
+        "quote": "Nico es un desarrollador excepcional. Tomó nuestros diseños de Figma y les dio vida con precisión pixel-perfect. Rápido, comunicativo y un placer trabajar con él.",
+        "author": "Sarah Chen",
+        "role": "Líder de Diseño en Lumios Digital"
+      },
+      {
+        "quote": "Trabajar con Nico fue fluido. Entendió nuestra visión de marca inmediatamente y entregó un tema de Shopify que superó nuestras expectativas.",
+        "author": "Marco Rossi",
+        "role": "Fundador de Tashola"
+      },
+      {
+        "quote": "Confiable, habilidoso y genuinamente comprometido con su trabajo. La atención al detalle de Nico y su código limpio hicieron que nuestro proyecto fuera un éxito.",
+        "author": "Emily Watson",
+        "role": "Product Manager"
+      }
+    ]
+  },
+  "about": {
+    "title": "// Sobre mí",
+    "paragraphs": [
+      "Soy desarrollador frontend basado en Argentina, habiendo vivido en Berlín, Turín y Boston. Estudié programación en Berlín, y durante el último año lideré el desarrollo en {agency}, construyendo sitios de e-commerce para marcas como Tashola, Baudie y Walkfully.",
+      "Ahora estoy emprendiendo por mi cuenta.",
+      "Trabajo mejor con diseñadores y agencias que tienen la visión. Yo me encargo de construirlo. Hablo inglés, español e italiano, así que donde sea que estés, podemos trabajar juntos."
+    ],
+    "agencyName": "Lumios Digital",
+    "skillsTitle": "Con qué trabajo:",
+    "skills": [
+      "Temas personalizados de Shopify",
+      "WordPress y CMS headless",
+      "React y Next.js",
+      "Pixel-perfect desde Figma",
+      "Código rápido y limpio",
+      "Markup optimizado para SEO",
+      "Accesible / Compatible con WCAG"
+    ]
+  },
+  "contact": {
+    "title": "// Trabajemos juntos",
+    "intro": "¿Tenés un proyecto con diseños listos? Hablemos.",
+    "form": {
+      "name": "Nombre",
+      "email": "Email",
+      "message": "Mensaje",
+      "submit": "Enviar mensaje",
+      "sending": "Enviando..."
+    },
+    "success": {
+      "title": "¡Mensaje enviado!",
+      "line1": "Gracias por contactarme.",
+      "line2": "Te responderé pronto.",
+      "close": "Cerrar"
+    }
+  },
+  "footer": {
+    "timeIn": "en Argentina"
+  },
+  "project": {
+    "backToHome": "Volver al inicio",
+    "visitSite": "Visitar sitio",
+    "about": "// Sobre el proyecto",
+    "role": "// Lo que hice",
+    "techStack": "// Stack tecnológico",
+    "gallery": "// Galería",
+    "screenshotAlt": "Captura de {name} {number}",
+    "mobileScreenshotAlt": "Captura móvil de {name} {number}",
+    "videoAlt": "Video de demostración de {name}"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Página no encontrada",
+    "description": "La página que buscás no existe o fue movida.",
+    "backToHome": "Volver al inicio"
+  },
+  "accessibility": {
+    "toggleTheme": "Cambiar tema",
+    "switchToDark": "Cambiar a modo oscuro",
+    "switchToLight": "Cambiar a modo claro"
+  },
+  "lab": {
+    "title": "Component Lab",
+    "description": "Experimentos interactivos de UI y micro-interacciones. Pasá el mouse, scrolleá y hacé click.",
+    "navigation": {
+      "buttonEffects": "Botones",
+      "textReveal": "Texto Reveal",
+      "productCard": "Tarjeta Producto",
+      "scrollReveal": "Scroll Reveal",
+      "addToCart": "Agregar al Carrito",
+      "pageTransitions": "Transiciones",
+      "drawers": "Drawers",
+      "microInteractions": "Micro UI"
+    },
+    "demos": {
+      "buttonEffects": {
+        "title": "// Efectos de Botones",
+        "description": "Efectos hover que hacen que los botones cobren vida. Fill, ripple, magnético, glow, underline y scale."
+      },
+      "textReveal": {
+        "title": "// Texto Reveal al Scroll",
+        "description": "Palabras y caracteres se revelan mientras scrolleás. Hecho con IntersectionObserver, sin librerías."
+      },
+      "productCard": {
+        "title": "// Tarjeta de Producto",
+        "description": "Tarjetas e-commerce con tilt 3D al hover y overlay deslizante para acciones rápidas."
+      },
+      "scrollReveal": {
+        "title": "// Scroll Product Reveal",
+        "description": "Un producto se transforma mientras scrolleás — apareciendo, rotando, escalando y revelando detalles."
+      },
+      "addToCart": {
+        "title": "// Animación Agregar al Carrito",
+        "description": "Micro-interacción: el botón se transforma, el producto vuela al carrito, el contador rebota."
+      },
+      "pageTransitions": {
+        "title": "// Transiciones de Página",
+        "description": "Demo de View Transitions API con efectos fade, slide y morph entre páginas."
+      },
+      "drawers": {
+        "title": "// Componentes Drawer",
+        "description": "Drawers inferiores y laterales con drag-to-dismiss, snap points, anidamiento y formularios. CSS puro + React vanilla."
+      },
+      "microInteractions": {
+        "title": "// Micro-interacciones CSS",
+        "description": "Animaciones UI en loop hechas enteramente con CSS keyframes. Sin JavaScript, sin librerías — solo @keyframes y easing elástico."
+      }
+    }
+  },
+  "metadata": {
+    "title": "Nico Cantarelli",
+    "description": "Desarrollador frontend especializado en temas de Shopify, WordPress y desarrollo web personalizado. Builds pixel-perfect desde tus diseños."
+  }
+}

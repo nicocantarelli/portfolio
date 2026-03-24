@@ -76,3 +76,37 @@
   font-size: 0.8rem;
   color: var(--color-text-secondary);
 }
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+.link {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--color-text);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--color-accent-blue);
+  outline-offset: 2px;
+}
+
+.separator {
+  color: var(--color-text-secondary);
+  opacity: 0.5;
+}
+
+.copyright {
+  margin-top: var(--space-md);
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  opacity: 0.6;
+}

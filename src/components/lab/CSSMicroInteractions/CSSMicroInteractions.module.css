@@ -1,0 +1,2202 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 450px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background: var(--color-bg);
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.7),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(0, 0, 0, 0.03),
+    0 1px 2px 0 rgba(0, 0, 0, 0.04),
+    0 2px 4px 0 rgba(0, 0, 0, 0.03),
+    0 4px 8px 0 rgba(0, 0, 0, 0.02);
+}
+
+:global([data-theme="dark"]) .card {
+  border: none;
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.03),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 0 0 1px rgba(0, 0, 0, 0.1),
+    0 2px 2px 0 rgba(0, 0, 0, 0.1),
+    0 4px 4px 0 rgba(0, 0, 0, 0.1),
+    0 8px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.cardDemo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  width: 100%;
+}
+
+.cardLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+/* ===========================
+   1. Pagination
+   =========================== */
+
+.pagination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.paginationTrack {
+  display: flex;
+  align-items: flex-end;
+  height: 50px;
+}
+
+.pip {
+  width: 40px;
+  height: 24px;
+  border-radius: 20px 20px 0 0;
+  background: var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.pip:nth-child(1) {
+  animation: pipSelect 8s ease-in-out 0s infinite;
+}
+.pip:nth-child(2) {
+  animation: pipSelect 8s ease-in-out 2s infinite;
+}
+.pip:nth-child(3) {
+  animation: pipSelect 8s ease-in-out 4s infinite;
+}
+.pip:nth-child(4) {
+  animation: pipSelect 8s ease-in-out 6s infinite;
+}
+
+@keyframes pipSelect {
+  0% {
+    height: 24px;
+    background: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+  3% {
+    height: 48px;
+    background: var(--color-text-secondary);
+    color: var(--color-bg);
+  }
+  5% {
+    height: 42px;
+  }
+  7%, 23% {
+    height: 44px;
+    background: var(--color-text-secondary);
+    color: var(--color-bg);
+  }
+  27% {
+    height: 24px;
+    background: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+  100% {
+    height: 24px;
+    background: var(--color-border);
+    color: var(--color-text-secondary);
+  }
+}
+
+.paginationBar {
+  width: 180px;
+  height: 6px;
+  background: var(--color-text-secondary);
+  border-radius: 3px;
+}
+
+/* ===========================
+   2. Toggle Switch
+   =========================== */
+
+.toggleTrack {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  border-radius: 14px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.toggleFill {
+  position: absolute;
+  inset: 0;
+  background: var(--color-accent-blue);
+  border-radius: inherit;
+  animation: toggleBg 2.4s ease-in-out infinite;
+}
+
+@keyframes toggleBg {
+  0%, 15% { transform: translateX(-100%); }
+  30%, 45% { transform: translateX(0); }
+  65% { transform: translateX(0); }
+  80%, 100% { transform: translateX(-100%); }
+}
+
+.toggleKnob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  background: white;
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  animation: knobSlide 2.4s ease-in-out infinite;
+}
+
+@keyframes knobSlide {
+  0% { left: 3px; width: 22px; border-radius: 50%; }
+  18% { left: 3px; width: 36px; border-radius: 11px; }
+  30% { left: 27px; width: 22px; border-radius: 50%; }
+  35% { left: 25px; width: 24px; border-radius: 50%; }
+  40%, 45% { left: 27px; width: 22px; border-radius: 50%; }
+  45%, 50% { left: 27px; width: 22px; border-radius: 50%; }
+  68% { left: 13px; width: 36px; border-radius: 11px; }
+  80% { left: 3px; width: 22px; border-radius: 50%; }
+  85% { left: 3px; width: 24px; border-radius: 50%; }
+  90% { left: 3px; width: 22px; border-radius: 50%; }
+  100% { left: 3px; width: 22px; border-radius: 50%; }
+}
+
+/* Toggle pair layout */
+.togglePair {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+/* Toggle variant 2 — large knob on thin bar */
+.toggle2 {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.toggle2Bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 10px;
+  border-radius: 5px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.toggle2Fill {
+  position: absolute;
+  inset: 0;
+  background: var(--color-text-secondary);
+  border-radius: inherit;
+  transform-origin: left;
+  animation: toggle2FillAnim 2.4s ease-in-out infinite;
+}
+
+@keyframes toggle2FillAnim {
+  0%, 15% { transform: scaleX(0); }
+  30%, 45% { transform: scaleX(1); }
+  65% { transform: scaleX(1); }
+  80%, 100% { transform: scaleX(0); }
+}
+
+.toggle2Knob {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 28px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  animation: toggle2Knob 2.4s ease-in-out infinite;
+}
+
+@keyframes toggle2Knob {
+  0% { left: 0; }
+  18% { left: 0; }
+  30% { left: 24px; }
+  35% { left: 22px; }
+  40%, 45% { left: 24px; }
+  45%, 50% { left: 24px; }
+  68% { left: 24px; }
+  80% { left: 0; }
+  85% { left: 2px; }
+  90%, 100% { left: 0; }
+}
+
+/* ===========================
+   3. Search Box
+   =========================== */
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  border-radius: 6px;
+  overflow: hidden;
+  animation: searchBoxSize 4s ease-in-out infinite;
+}
+
+.searchInput {
+  flex: 1;
+  height: 100%;
+  background: var(--color-border);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  min-width: 0;
+  position: relative;
+}
+
+.searchPlaceholder {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  animation: searchTextFade 4s ease-in-out infinite;
+}
+
+@keyframes searchTextFade {
+  0%, 18% { opacity: 1; }
+  22%, 72% { opacity: 0.4; }
+  78%, 100% { opacity: 1; }
+}
+
+.searchCursor {
+  width: 1.5px;
+  height: 14px;
+  background: var(--color-text-secondary);
+  margin-right: 1px;
+  flex-shrink: 0;
+  opacity: 0;
+  animation: cursorAppear 4s ease-in-out infinite, cursorBlink 0.8s steps(2) infinite;
+}
+
+@keyframes cursorAppear {
+  0%, 18% { opacity: 0; }
+  22%, 72% { opacity: 1; }
+  78%, 100% { opacity: 0; }
+}
+
+@keyframes cursorBlink {
+  0% { visibility: visible; }
+  50% { visibility: hidden; }
+}
+
+.searchBtn {
+  width: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-text-secondary);
+  color: var(--color-bg);
+  flex-shrink: 0;
+  overflow: hidden;
+  animation: searchBtnGrow 4s ease-in-out infinite;
+}
+
+.searchSvg {
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+.searchHandle {
+  stroke-dasharray: 8;
+  stroke-dashoffset: 8;
+  animation: searchHandleDraw 4s ease-in-out infinite;
+}
+
+@keyframes searchBoxSize {
+  0%, 15% { width: 100px; height: 32px; }
+  25%, 70% { width: 160px; height: 36px; }
+  80%, 100% { width: 100px; height: 32px; }
+}
+
+@keyframes searchBtnGrow {
+  0%, 18% { width: 0; }
+  28%, 68% { width: 40px; }
+  78%, 100% { width: 0; }
+}
+
+@keyframes searchHandleDraw {
+  0%, 30% { stroke-dashoffset: 8; }
+  40%, 60% { stroke-dashoffset: 0; }
+  70%, 100% { stroke-dashoffset: 8; }
+}
+
+/* ===========================
+   4. Radio Buttons
+   =========================== */
+
+.radioGroup {
+  display: flex;
+  gap: var(--space-xl);
+}
+
+.radioOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+/* Style 1: Filled — thick ring unselected, solid fill when selected */
+.radioFilled {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 4px solid var(--color-border);
+  background: transparent;
+  box-sizing: border-box;
+  animation: filledSelect 5s ease-in-out infinite;
+}
+
+.radioFilledCenter {
+  display: none;
+}
+
+@keyframes filledSelect {
+  0%, 36% {
+    border-width: 4px;
+    border-color: var(--color-border);
+  }
+  /* Select: squeeze toward center */
+  43% {
+    border-width: 10px;
+    border-color: var(--color-text-secondary);
+  }
+  /* Bounce back out */
+  48% {
+    border-width: 7px;
+    border-color: var(--color-text-secondary);
+  }
+  /* Settle inward */
+  52% {
+    border-width: 8.5px;
+    border-color: var(--color-text-secondary);
+  }
+  /* Rest selected */
+  55%, 78% {
+    border-width: 8px;
+    border-color: var(--color-text-secondary);
+  }
+  /* Release: squeeze toward center first */
+  82% {
+    border-width: 9.5px;
+    border-color: var(--color-text-secondary);
+  }
+  /* Spring outward */
+  88% {
+    border-width: 3px;
+    border-color: var(--color-border);
+  }
+  /* Small bounce back inward */
+  92% {
+    border-width: 5px;
+    border-color: var(--color-border);
+  }
+  /* Tiny overshoot out */
+  95% {
+    border-width: 3.5px;
+    border-color: var(--color-border);
+  }
+  /* Settle */
+  98%, 100% {
+    border-width: 4px;
+    border-color: var(--color-border);
+  }
+}
+
+/* Style 2: Ring + Dot — border darkens, dot grows from center */
+.radioRing {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 3px solid var(--color-border);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: ringBorder 5s ease-in-out infinite;
+}
+
+.radioRingDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-text-secondary);
+  transform: scale(0);
+  animation: ringDot 5s ease-in-out infinite;
+}
+
+@keyframes ringBorder {
+  0%, 36% { border-color: var(--color-text-secondary); transform: scale(1); }
+  /* Dot disappears — ring pulls inward in sync */
+  38% { transform: scale(1.03); border-color: var(--color-text-secondary); }
+  44% { transform: scale(0.92); }
+  48% { transform: scale(1.02); }
+  52%, 78% { transform: scale(1); border-color: var(--color-border); }
+  /* Dot appears — ring pushes outward */
+  85% { transform: scale(1.1); border-color: var(--color-text-secondary); }
+  90% { transform: scale(0.97); }
+  94% { transform: scale(1.02); }
+  97%, 100% { transform: scale(1); border-color: var(--color-text-secondary); }
+}
+
+@keyframes ringDot {
+  0%, 36% { transform: scale(1); }
+  /* Squeeze then disappear — slower */
+  38% { transform: scale(1.15); }
+  44% { transform: scale(0); }
+  52%, 78% { transform: scale(0); }
+  /* Grow from center with overshoot */
+  84% { transform: scale(1.3); }
+  88% { transform: scale(0.9); }
+  91% { transform: scale(1.05); }
+  94%, 100% { transform: scale(1); }
+}
+
+/* ===========================
+   5. Hamburger Menu
+   =========================== */
+
+.hamburger {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.hamLine {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #757371;
+  border-radius: 2px;
+  transform-origin: right;
+}
+
+.hamLine1 { top: 3px; animation: hamLineAnim 4s ease-in-out infinite; }
+.hamLine2 { top: 50%; margin-top: -1.5px; animation: hamLineAnim 4s ease-in-out 0.08s infinite; }
+.hamLine3 { bottom: 3px; animation: hamLineAnim 4s ease-in-out 0.16s infinite; }
+
+@keyframes hamLineAnim {
+  /* Visible */
+  0%, 20% { transform: scaleX(1); transform-origin: right; }
+  /* Erase toward right */
+  28% { transform: scaleX(0); transform-origin: right; }
+  /* Stay hidden */
+  58% { transform: scaleX(0); transform-origin: left; }
+  /* Draw back from left — overlaps with X erasing */
+  66% { transform: scaleX(1); transform-origin: left; }
+  100% { transform: scaleX(1); transform-origin: left; }
+}
+
+.hamX {
+  position: absolute;
+  inset: 0;
+}
+
+.hamX1,
+.hamX2 {
+  stroke: #757371;
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+}
+
+.hamX1 {
+  animation: hamXDraw1 4s ease-in-out infinite;
+}
+
+.hamX2 {
+  animation: hamXDraw2 4s ease-in-out infinite;
+}
+
+/* Top-left to bottom-right: draws from left, erases toward right */
+@keyframes hamXDraw1 {
+  0%, 22% { stroke-dashoffset: 20; }
+  32% { stroke-dashoffset: 0; }
+  53% { stroke-dashoffset: 0; }
+  61% { stroke-dashoffset: -20; }
+  100% { stroke-dashoffset: -20; }
+}
+
+/* Bottom-left to top-right: draws from left after first, erases toward right after first */
+@keyframes hamXDraw2 {
+  0%, 26% { stroke-dashoffset: 20; }
+  36% { stroke-dashoffset: 0; }
+  57% { stroke-dashoffset: 0; }
+  65% { stroke-dashoffset: -20; }
+  100% { stroke-dashoffset: -20; }
+}
+
+.menuPair {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+/* Dots → X morph variant (same technique as yui540) */
+.dotsMenu {
+  --s: 24px;
+  --b: 5px;
+  position: relative;
+  width: var(--s);
+  height: var(--s);
+}
+
+.morphDot {
+  position: absolute;
+  width: var(--b);
+  height: var(--b);
+  background-color: #757371;
+  border-radius: 999px;
+}
+
+/* nth-child(1) = left dot: moves to center, rotates 45°, stretches into X arm */
+.morphDotL {
+  top: 50%;
+  left: 0;
+  transform: translate(0%, -50%);
+  animation: morphL 5s cubic-bezier(0.82, 0.01, 0.28, 0.99) infinite;
+}
+
+/* nth-child(2) = right dot: moves to center, rotates -45°, stretches into X arm */
+.morphDotR {
+  top: 50%;
+  right: 0;
+  transform: translate(0%, -50%);
+  animation: morphR 5s cubic-bezier(0.82, 0.01, 0.28, 0.99) infinite;
+}
+
+/* nth-child(3) = center dot: just disappears */
+.morphDotC {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: morphC 5s ease-in-out infinite;
+}
+
+/*
+  Phase 1 (dots → X): dot slides to center + grows to 9px → shrinks back to 5px + rotates → height stretches to 24px
+  Phase 2 (X → dots): height shrinks → unrotates + grows to 9px → slides back + shrinks to 5px
+*/
+
+@keyframes morphL {
+  0%, 10% {
+    transform: translate(0%, -50%) scale(1);
+    opacity: 1;
+  }
+  18% {
+    transform: translate(9.5px, -50%) scale(1.6);
+    opacity: 1;
+  }
+  24% {
+    transform: translate(9.5px, -50%) scale(1);
+    opacity: 0;
+  }
+  76% {
+    transform: translate(9.5px, -50%) scale(1);
+    opacity: 0;
+  }
+  82% {
+    transform: translate(9.5px, -50%) scale(1.6);
+    opacity: 1;
+  }
+  90%, 100% {
+    transform: translate(0%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes morphR {
+  0%, 10% {
+    transform: translate(0%, -50%) scale(1);
+    opacity: 1;
+  }
+  18% {
+    transform: translate(-9.5px, -50%) scale(1.6);
+    opacity: 1;
+  }
+  24% {
+    transform: translate(-9.5px, -50%) scale(1);
+    opacity: 0;
+  }
+  76% {
+    transform: translate(-9.5px, -50%) scale(1);
+    opacity: 0;
+  }
+  82% {
+    transform: translate(-9.5px, -50%) scale(1.6);
+    opacity: 1;
+  }
+  90%, 100% {
+    transform: translate(0%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes morphC {
+  0%, 10% { transform: translate(-50%, -50%) scale(1); }
+  18% { transform: translate(-50%, -50%) scale(0); }
+  20%, 80% { transform: translate(-50%, -50%) scale(1); }
+  82% { transform: translate(-50%, -50%) scale(0); }
+  90%, 100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* X arms — grow from center outward, measured to match hamburger SVG X */
+.xArm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 11.9px;
+  height: 3.6px;
+  margin-top: -1.8px;
+  background: #757371;
+  border-radius: 1.8px;
+  transform-origin: left center;
+}
+
+.xArm1 { animation: xA1 5s ease-in-out infinite; }
+.xArm2 { animation: xA2 5s ease-in-out 0.04s infinite; }
+.xArm3 { animation: xA3 5s ease-in-out 0.08s infinite; }
+.xArm4 { animation: xA4 5s ease-in-out 0.12s infinite; }
+
+@keyframes xA1 {
+  0%, 24% { transform: rotate(-45deg) scaleX(0); }
+  32% { transform: rotate(-45deg) scaleX(1); }
+  68% { transform: rotate(-45deg) scaleX(1); }
+  76% { transform: rotate(-45deg) scaleX(0); }
+  100% { transform: rotate(-45deg) scaleX(0); }
+}
+
+@keyframes xA2 {
+  0%, 24% { transform: rotate(135deg) scaleX(0); }
+  32% { transform: rotate(135deg) scaleX(1); }
+  68% { transform: rotate(135deg) scaleX(1); }
+  76% { transform: rotate(135deg) scaleX(0); }
+  100% { transform: rotate(135deg) scaleX(0); }
+}
+
+@keyframes xA3 {
+  0%, 24% { transform: rotate(45deg) scaleX(0); }
+  32% { transform: rotate(45deg) scaleX(1); }
+  68% { transform: rotate(45deg) scaleX(1); }
+  76% { transform: rotate(45deg) scaleX(0); }
+  100% { transform: rotate(45deg) scaleX(0); }
+}
+
+@keyframes xA4 {
+  0%, 24% { transform: rotate(-135deg) scaleX(0); }
+  32% { transform: rotate(-135deg) scaleX(1); }
+  68% { transform: rotate(-135deg) scaleX(1); }
+  76% { transform: rotate(-135deg) scaleX(0); }
+  100% { transform: rotate(-135deg) scaleX(0); }
+}
+
+/* ===========================
+   6. Loading
+   =========================== */
+
+.loadingPair {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.spinner {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  animation: spinRotate 50s linear infinite;
+}
+
+@keyframes spinRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spoke {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 10px;
+  margin-left: -2.5px;
+  margin-top: -22px;
+  background: transparent;
+  border-radius: 3px;
+  transform-origin: 2.5px 22px;
+}
+
+.spoke::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #757371;
+  border-radius: inherit;
+  transform-origin: bottom center;
+}
+
+.spoke:nth-child(1) { transform: rotate(0deg); }
+.spoke:nth-child(2) { transform: rotate(45deg); }
+.spoke:nth-child(3) { transform: rotate(90deg); }
+.spoke:nth-child(4) { transform: rotate(135deg); }
+.spoke:nth-child(5) { transform: rotate(180deg); }
+.spoke:nth-child(6) { transform: rotate(225deg); }
+.spoke:nth-child(7) { transform: rotate(270deg); }
+.spoke:nth-child(8) { transform: rotate(315deg); }
+
+.spoke:nth-child(1)::after { animation: spokeStretch 2s ease-in-out 0s infinite; }
+.spoke:nth-child(2)::after { animation: spokeStretch 2s ease-in-out 0.18s infinite; }
+.spoke:nth-child(3)::after { animation: spokeStretch 2s ease-in-out 0.32s infinite; }
+.spoke:nth-child(4)::after { animation: spokeStretch 2s ease-in-out 0.42s infinite; }
+.spoke:nth-child(5)::after { animation: spokeStretch 2s ease-in-out 0.5s infinite; }
+.spoke:nth-child(6)::after { animation: spokeStretch 2s ease-in-out 0.6s infinite; }
+.spoke:nth-child(7)::after { animation: spokeStretch 2s ease-in-out 0.74s infinite; }
+.spoke:nth-child(8)::after { animation: spokeStretch 2s ease-in-out 0.92s infinite; }
+
+@keyframes spokeStretch {
+  0% { transform: scaleY(1); }
+  4% { transform: scaleY(0.4); }
+  6% { transform: scaleY(0.4); }
+  14% { transform: scaleY(1.8); }
+  22% { transform: scaleY(0.85); }
+  28% { transform: scaleY(1.2); }
+  34% { transform: scaleY(1.15); }
+  42%, 100% { transform: scaleY(1); }
+}
+
+/* ===========================
+   7. Tab Switcher
+   =========================== */
+
+.tabSwitcher {
+  width: 80px;
+}
+
+.tabLabels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+}
+
+.tabA,
+.tabB {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--color-border);
+  padding-bottom: 6px;
+  transition: color 0.4s ease-out, transform 0.44s cubic-bezier(0.8, 0.25, 0.19, 1.37);
+  transform: scale(0.88);
+}
+
+.tabA {
+  animation: tabAColor 4s ease-in-out infinite;
+}
+
+.tabB {
+  animation: tabBColor 4s ease-in-out infinite;
+}
+
+@keyframes tabAColor {
+  0%, 42% { color: #757371; transform: scale(1.12); }
+  46% { color: var(--color-border); transform: scale(0.85); }
+  50%, 92% { color: var(--color-border); transform: scale(0.88); }
+  96% { color: #757371; transform: scale(1.16); }
+  100% { color: #757371; transform: scale(1.12); }
+}
+
+@keyframes tabBColor {
+  0%, 42% { color: var(--color-border); transform: scale(0.88); }
+  46% { color: #757371; transform: scale(1.16); }
+  50%, 92% { color: #757371; transform: scale(1.12); }
+  96% { color: var(--color-border); transform: scale(0.85); }
+  100% { color: var(--color-border); transform: scale(0.88); }
+}
+
+.tabLine {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.tabIndicator {
+  width: 50%;
+  height: 100%;
+  background: #757371;
+  border-radius: inherit;
+  animation: tabSlide 4s ease-in-out infinite;
+}
+
+@keyframes tabSlide {
+  0%, 42% { transform: translateX(0%); }
+  48% { transform: translateX(108%); }
+  50% { transform: translateX(97%); }
+  52%, 92% { transform: translateX(100%); }
+  98% { transform: translateX(-8%); }
+  99.5% { transform: translateX(3%); }
+  100% { transform: translateX(0%); }
+}
+
+/* ===========================
+   8. Eye (Visibility)
+   =========================== */
+
+.eyeIcon {
+  overflow: visible;
+}
+
+.eyeShape {
+  fill: #757371;
+  transform-origin: center;
+  animation: eyeGrow 2.4s ease-in-out infinite;
+}
+
+.eyePupil {
+  fill: #757371;
+  transform-origin: center;
+  animation: eyeGrow 2.4s ease-in-out infinite;
+}
+
+@keyframes eyeGrow {
+  0%, 28% { transform: scale(1); }
+  32% { transform: scale(1.12); }
+  38% { transform: scale(1); }
+  58%, 62% { transform: scale(1); }
+  66% { transform: scale(1.12); }
+  72%, 100% { transform: scale(1); }
+}
+
+.eyeStrike {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: eyeStrikeAnim 2.4s ease-in-out infinite;
+}
+
+@keyframes eyeStrikeAnim {
+  0%, 30% { stroke-dashoffset: 24; }
+  38% { stroke-dashoffset: 0; }
+  58% { stroke-dashoffset: 0; }
+  66%, 100% { stroke-dashoffset: -24; }
+}
+
+/* ===========================
+   9. Plus to Minus
+   =========================== */
+
+.plusMinus {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  animation: plusScale 3s ease-in-out infinite;
+}
+
+.plusH,
+.plusV {
+  position: absolute;
+  background: #757371;
+  border-radius: 4px;
+}
+
+.plusH {
+  top: calc(50% - 2px);
+  left: 0;
+  width: 100%;
+  height: 4px;
+}
+
+.plusV {
+  top: 0;
+  left: calc(50% - 2px);
+  width: 4px;
+  height: 100%;
+  transform-origin: center center;
+  animation: plusVAnim 3s ease-out infinite;
+}
+
+@keyframes plusScale {
+  0%, 38% { transform: scale(1); }
+  44% { transform: scale(1.25); }
+  50%, 88% { transform: scale(1); }
+  94% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+@keyframes plusVAnim {
+  0%, 40% { transform: scaleY(1); }
+  50%, 88% { transform: scaleY(0); }
+  100% { transform: scaleY(1); }
+}
+
+/* ===========================
+   10. Sliders
+   =========================== */
+
+.sliders {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 36px;
+}
+
+.sliderRow {
+  position: relative;
+  height: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.sliderTrack {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #757371;
+  border-radius: 3px;
+}
+
+.sliderKnob {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2.5px solid #757371;
+  background: var(--color-bg);
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.sliderKnob1 {
+  animation: sKnob1 4s cubic-bezier(0.8, 0.25, 0.19, 1.37) infinite;
+}
+
+.sliderKnob2 {
+  animation: sKnob2 4s cubic-bezier(0.8, 0.25, 0.19, 1.37) infinite;
+}
+
+.sliderKnob3 {
+  animation: sKnob3 4s cubic-bezier(0.8, 0.25, 0.19, 1.37) infinite;
+}
+
+@keyframes sKnob1 {
+  0%, 20% { left: 3px; }
+  40%, 60% { left: 22px; }
+  80%, 100% { left: 3px; }
+}
+
+@keyframes sKnob2 {
+  0%, 20% { left: 18px; }
+  40%, 60% { left: 6px; }
+  80%, 100% { left: 18px; }
+}
+
+@keyframes sKnob3 {
+  0%, 20% { left: 6px; }
+  40%, 60% { left: 20px; }
+  80%, 100% { left: 6px; }
+}
+
+/* ===========================
+   11. Clock
+   =========================== */
+
+.clockIcon {
+  overflow: visible;
+}
+
+.clockFace {
+  fill: #757371;
+}
+
+.clockMinute {
+  transform-origin: 12px 12px;
+  animation: minuteHand 2s linear infinite;
+}
+
+.clockHour {
+  transform-origin: 12px 12px;
+  animation: hourHand 24s steps(12) infinite;
+}
+
+@keyframes minuteHand {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes hourHand {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===========================
+   12. Grid
+   =========================== */
+
+.gridIcon {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  width: 36px;
+  height: 36px;
+}
+
+/* Grid layout: 1=top-left, 2=top-right, 3=bottom-left, 4=bottom-right */
+/* Clockwise: 1→2, 2→4, 4→3, 3→1 then reverse */
+
+.gridSquare {
+  border-radius: 4px;
+  border: 2.5px solid #757371;
+}
+
+/* Half size + gap for translate distances: each cell is ~12.5px, gap 3px, so shift = 20px */
+.gridSquare:nth-child(1) { animation: gS1 4s cubic-bezier(0.34, 1.56, 0.64, 1) infinite; }
+.gridSquare:nth-child(2) { animation: gS2 4s cubic-bezier(0.34, 1.56, 0.64, 1) infinite; }
+.gridSquare:nth-child(3) { animation: gS3 4s cubic-bezier(0.34, 1.56, 0.64, 1) infinite; }
+.gridSquare:nth-child(4) { animation: gS4 4s cubic-bezier(0.34, 1.56, 0.64, 1) infinite; }
+
+/* Top-left → Top-right → back */
+@keyframes gS1 {
+  0%, 15% { transform: translate(0, 0); }
+  35%, 60% { transform: translate(20px, 0); }
+  80%, 100% { transform: translate(0, 0); }
+}
+
+/* Top-right → Bottom-right → back */
+@keyframes gS2 {
+  0%, 15% { transform: translate(0, 0); }
+  35%, 60% { transform: translate(0, 20px); }
+  80%, 100% { transform: translate(0, 0); }
+}
+
+/* Bottom-left → Top-left → back */
+@keyframes gS3 {
+  0%, 15% { transform: translate(0, 0); }
+  35%, 60% { transform: translate(0, -20px); }
+  80%, 100% { transform: translate(0, 0); }
+}
+
+/* Bottom-right → Bottom-left → back */
+@keyframes gS4 {
+  0%, 15% { transform: translate(0, 0); }
+  35%, 60% { transform: translate(-20px, 0); }
+  80%, 100% { transform: translate(0, 0); }
+}
+
+/* ===========================
+   13. Back/Forward Navigation
+   =========================== */
+
+.navButtons {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 3px;
+  place-content: center;
+}
+
+/* Button — rounded rect, stretches width */
+.navBtn {
+  position: relative;
+  width: 45px;
+  height: 28px;
+  background-color: var(--color-border);
+  border-radius: 5px 0 0 5px;
+}
+
+.navBtn:nth-child(1) {
+  animation: btnPress 5s ease-in-out infinite;
+}
+
+.navBtnFwd {
+  transform: scaleX(-1);
+  animation: btnShrink 5s ease-in-out infinite;
+}
+
+/* Arrow: shaft is the element, chevron arms are ::before/::after */
+.navArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 14px;
+  width: 15px;
+  height: 3px;
+  border-radius: 999px;
+  background-color: #757371;
+}
+
+.navArrow::before,
+.navArrow::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 9px;
+  height: 100%;
+  border-radius: 999px;
+  background-color: #757371;
+  transform-origin: 1.5px center;
+}
+
+.navArrow::before { transform: rotate(-45deg); }
+.navArrow::after { transform: rotate(45deg); }
+
+/* Only the shaft width animates — chevron arms pivot from left end */
+.navBtn:nth-child(1) .navArrow {
+  animation: arrowPress 5s ease-in-out infinite;
+}
+
+.navBtnFwd .navArrow {
+  animation: arrowRelease 5s ease-in-out infinite;
+}
+
+/* Button: left presses first */
+@keyframes btnPress {
+  0%, 10% { width: 45px; }
+  18% { width: 53px; background-color: rgba(0,0,0,0.1); }
+  26% { width: 43px; }
+  32%, 48% { width: 45px; background-color: var(--color-border); }
+  56% { width: 38px; }
+  64% { width: 46px; }
+  70%, 100% { width: 45px; }
+}
+
+/* Button: right shrinks first, then presses */
+@keyframes btnShrink {
+  0%, 10% { width: 45px; }
+  18% { width: 38px; }
+  26% { width: 46px; }
+  32%, 48% { width: 45px; background-color: var(--color-border); }
+  56% { width: 53px; background-color: rgba(0,0,0,0.1); }
+  64% { width: 43px; }
+  70%, 100% { width: 45px; background-color: var(--color-border); }
+}
+
+/* Arrow shaft stretches when its button presses */
+@keyframes arrowPress {
+  0%, 10% { width: 15px; }
+  15% { width: 30px; }
+  22% { width: 12px; }
+  28%, 100% { width: 15px; }
+}
+
+@keyframes arrowRelease {
+  0%, 48% { width: 15px; }
+  54% { width: 30px; }
+  60% { width: 12px; }
+  66%, 100% { width: 15px; }
+}
+
+/* Arrow stretches from center (both ends) and returns */
+.arrowShaft {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: inherit;
+}
+
+
+/* ===========================
+   14. Context Menu
+   =========================== */
+
+.ctxMenu {
+  position: relative;
+  width: 110px;
+  height: 70px;
+}
+
+.ctxCard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--color-bg);
+  box-shadow: 0 0 8px var(--color-border);
+  overflow: hidden;
+  animation: ctxExpand 5s ease-in-out infinite;
+}
+
+@keyframes ctxExpand {
+  0%, 10% {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+  }
+  20% {
+    width: 112px;
+    height: 72px;
+    border-radius: 12px;
+  }
+  25%, 70% {
+    width: 108px;
+    height: 70px;
+    border-radius: 12px;
+  }
+  80% {
+    width: 112px;
+    height: 72px;
+    border-radius: 12px;
+  }
+  90%, 100% {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+  }
+}
+
+/* 3 dots when collapsed */
+.ctxDots {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 3px;
+  animation: ctxDotsFade 5s ease-in-out infinite;
+}
+
+.ctxDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #757371;
+}
+
+@keyframes ctxDotsFade {
+  0%, 10% { opacity: 1; }
+  18%, 82% { opacity: 0; }
+  90%, 100% { opacity: 1; }
+}
+
+/* X close when expanded */
+.ctxClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 14px;
+  height: 14px;
+  opacity: 0;
+  animation: ctxCloseFade 5s ease-in-out infinite;
+}
+
+.ctxCloseLine {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: #757371;
+  border-radius: 1px;
+}
+
+.ctxCloseLine:nth-child(1) {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.ctxCloseLine:nth-child(2) {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+@keyframes ctxCloseFade {
+  0%, 22% { opacity: 0; }
+  28%, 72% { opacity: 1; }
+  78%, 100% { opacity: 0; }
+}
+
+.ctxItems {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ctxItem {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #757371;
+  opacity: 0;
+  animation: ctxItemIn 5s ease-in-out infinite;
+}
+
+.ctxItemDanger {
+  composes: ctxItem;
+  color: #e53e3e;
+  animation: ctxItemIn 5s ease-in-out 0.1s infinite;
+}
+
+@keyframes ctxItemIn {
+  0%, 18% { opacity: 0; transform: translateY(-8px); }
+  24%, 72% { opacity: 1; transform: translateY(0); }
+  78%, 100% { opacity: 0; transform: translateY(-8px); }
+}
+
+/* ===========================
+   15. A/B Tab Toggle
+   =========================== */
+
+/* Exact structure from yui540/motions/43, scaled ~50% */
+.abToggle {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  animation: abContainerA 4s ease-in-out infinite;
+}
+
+/* Sliding pill behind labels */
+.abPill {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 44px;
+  height: 24px;
+  background-color: #757371;
+  border-radius: 6px;
+  animation: abPillSlide 4s ease-in-out infinite;
+}
+
+.abLabel {
+  display: grid;
+  place-content: center;
+  position: relative;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: #757371;
+  width: 44px;
+  height: 24px;
+  border-radius: 5px;
+}
+
+/* A label: starts white (active), goes gray */
+.abLabel:nth-child(2) {
+  color: white;
+  animation: abLabelA 4s linear infinite;
+}
+
+/* B label: starts gray, goes white (active) */
+.abLabel:nth-child(3) {
+  animation: abLabelB 4s linear infinite;
+}
+
+/* Pill: slides right with overshoot, then back with overshoot */
+@keyframes abPillSlide {
+  0%, 35% { transform: translateX(0%); }
+  42% { transform: translateX(105%); }
+  45%, 85% { transform: translateX(100%); }
+  92% { transform: translateX(-5%); }
+  95%, 100% { transform: translateX(0%); }
+}
+
+/* Container pulses from direction of movement */
+@keyframes abContainerA {
+  0%, 35% { transform: scaleX(1); transform-origin: left center; }
+  40% { transform: scaleX(1.04); transform-origin: left center; }
+  45%, 85% { transform: scaleX(1); }
+  90% { transform: scaleX(1.04); transform-origin: right center; }
+  95%, 100% { transform: scaleX(1); transform-origin: right center; }
+}
+
+/* A text color */
+@keyframes abLabelA {
+  0%, 38% { color: white; }
+  42%, 88% { color: #757371; }
+  92%, 100% { color: white; }
+}
+
+/* B text color */
+@keyframes abLabelB {
+  0%, 38% { color: #757371; }
+  42%, 88% { color: white; }
+  92%, 100% { color: #757371; }
+}
+
+/* ===========================
+   16. Icons (Download + Bar Chart)
+   =========================== */
+
+.iconPair {
+  display: grid;
+  column-gap: 12px;
+  grid-auto-flow: column;
+  place-content: center;
+}
+
+.iconBox {
+  --size: 40px;
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  background-color: var(--color-border);
+  border-radius: 8px;
+}
+
+.dlInner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 22px;
+  height: 22px;
+}
+
+/* Download arrow — shaft with chevron arms */
+.dlArrow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 14px;
+  background-color: #757371;
+  border-radius: 8px;
+  animation: dlArrowBounce 3.5s ease-in-out infinite;
+}
+
+.dlArrow::before,
+.dlArrow::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-color: #757371;
+  border-radius: 8px;
+  transform-origin: center bottom;
+}
+
+.dlArrow::before { transform: rotate(-45deg) translateX(30%); }
+.dlArrow::after { transform: rotate(45deg) translateX(-30%); }
+
+@keyframes dlArrowBounce {
+  0%, 15% { transform: translateX(-50%) translateY(0%); }
+  30% { transform: translateX(-50%) translateY(51%); }
+  45%, 100% { transform: translateX(-50%) translateY(0%); }
+}
+
+/* Download tray — horizontal bar with side walls */
+.dlTray {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 3px;
+  background-color: #757371;
+  border-radius: 8px;
+  animation: dlTrayStretch 3.5s ease-in-out infinite;
+}
+
+.dlTray::before,
+.dlTray::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 3px;
+  height: 8px;
+  background-color: #757371;
+  border-radius: 8px;
+}
+
+.dlTray::before { left: 0; }
+.dlTray::after { right: 0; }
+
+@keyframes dlTrayStretch {
+  0%, 15% { width: 100%; }
+  30% { width: 130%; }
+  45%, 100% { width: 100%; }
+}
+
+/* Bar chart — 3 bars that swap heights */
+.barChart {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.bar {
+  position: absolute;
+  bottom: 0;
+  width: 20%;
+  background-color: #757371;
+  border-radius: 4px;
+}
+
+.bar:nth-child(1) {
+  left: 0;
+  height: 40%;
+  animation: barSwap1 3s ease-in-out infinite;
+}
+
+.bar:nth-child(2) {
+  left: 50%;
+  transform: translateX(-50%);
+  height: 70%;
+}
+
+.bar:nth-child(3) {
+  right: 0;
+  height: 100%;
+  animation: barSwap3 3s ease-in-out infinite;
+}
+
+@keyframes barSwap1 {
+  0% { height: 40%; }
+  30% { height: 110%; }
+  40%, 60% { height: 100%; }
+  70% { height: 30%; }
+  80%, 100% { height: 40%; }
+}
+
+@keyframes barSwap3 {
+  0% { height: 100%; }
+  30% { height: 30%; }
+  40%, 60% { height: 40%; }
+  70% { height: 110%; }
+  80%, 100% { height: 100%; }
+}
+
+/* ===========================
+   17. Pagination (Circles)
+   =========================== */
+
+/* Pagination — exact structure from yui540/motions/43 */
+.circPag {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 6px;
+  justify-content: center;
+  align-items: center;
+}
+
+.circDot {
+  display: grid;
+  place-content: center;
+  position: relative;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--color-border);
+}
+
+.circDot span {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  z-index: 1;
+}
+
+.circDot::before {
+  content: '';
+  display: block;
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-color: #757371;
+  transform: scale(0);
+}
+
+/* Active state values: 32px, ::before scale(1), white text, bigger font */
+.circActive {
+  width: 32px;
+  height: 32px;
+}
+
+.circActive::before {
+  transform: scale(1);
+}
+
+.circActive span {
+  font-size: 0.75rem;
+  color: white;
+}
+
+/* Looping animation — each dot takes a turn being active */
+/* All use the same bouncy easing as original: cubic-bezier(0, 1.2, 0.44, 1.29) */
+
+.circDot:nth-child(1) { animation: cS1 8s cubic-bezier(0, 1.2, 0.44, 1.29) infinite; }
+.circDot:nth-child(1)::before { animation: cF1 8s ease-in-out infinite; }
+.circDot:nth-child(1) span { animation: cT1 8s cubic-bezier(0, 1.2, 0.44, 1.29) infinite; }
+
+.circDot:nth-child(2) { animation: cS2 8s cubic-bezier(0, 1.2, 0.44, 1.29) infinite; }
+.circDot:nth-child(2)::before { animation: cF2 8s ease-in-out infinite; }
+.circDot:nth-child(2) span { animation: cT2 8s cubic-bezier(0, 1.2, 0.44, 1.29) infinite; }
+
+.circDot:nth-child(3) { animation: cS3 8s cubic-bezier(0, 1.2, 0.44, 1.29) infinite; }
+.circDot:nth-child(3)::before { animation: cF3 8s ease-in-out infinite; }
+.circDot:nth-child(3) span { animation: cT3 8s cubic-bezier(0, 1.2, 0.44, 1.29) infinite; }
+
+.circDot:nth-child(4) { animation: cS4 8s cubic-bezier(0, 1.2, 0.44, 1.29) infinite; }
+.circDot:nth-child(4)::before { animation: cF4 8s ease-in-out infinite; }
+.circDot:nth-child(4) span { animation: cT4 8s cubic-bezier(0, 1.2, 0.44, 1.29) infinite; }
+
+/* 1: active 0–22% */
+@keyframes cS1 { 0%, 22% { width: 32px; height: 32px; } 25%, 97% { width: 22px; height: 22px; } 100% { width: 32px; height: 32px; } }
+@keyframes cF1 { 0%, 22% { transform: scale(1); } 25%, 97% { transform: scale(0); } 100% { transform: scale(1); } }
+@keyframes cT1 { 0%, 22% { color: white; font-size: 0.75rem; } 25%, 97% { color: var(--color-text-secondary); font-size: 0.6rem; } 100% { color: white; font-size: 0.75rem; } }
+
+/* 2: active 25–47% */
+@keyframes cS2 { 0%, 22% { width: 22px; height: 22px; } 25%, 47% { width: 32px; height: 32px; } 50%, 100% { width: 22px; height: 22px; } }
+@keyframes cF2 { 0%, 22% { transform: scale(0); } 25%, 47% { transform: scale(1); } 50%, 100% { transform: scale(0); } }
+@keyframes cT2 { 0%, 22% { color: var(--color-text-secondary); font-size: 0.6rem; } 25%, 47% { color: white; font-size: 0.75rem; } 50%, 100% { color: var(--color-text-secondary); font-size: 0.6rem; } }
+
+/* 3: active 50–72% */
+@keyframes cS3 { 0%, 47% { width: 22px; height: 22px; } 50%, 72% { width: 32px; height: 32px; } 75%, 100% { width: 22px; height: 22px; } }
+@keyframes cF3 { 0%, 47% { transform: scale(0); } 50%, 72% { transform: scale(1); } 75%, 100% { transform: scale(0); } }
+@keyframes cT3 { 0%, 47% { color: var(--color-text-secondary); font-size: 0.6rem; } 50%, 72% { color: white; font-size: 0.75rem; } 75%, 100% { color: var(--color-text-secondary); font-size: 0.6rem; } }
+
+/* 4: active 75–97% */
+@keyframes cS4 { 0%, 72% { width: 22px; height: 22px; } 75%, 97% { width: 32px; height: 32px; } 100% { width: 22px; height: 22px; } }
+@keyframes cF4 { 0%, 72% { transform: scale(0); } 75%, 97% { transform: scale(1); } 100% { transform: scale(0); } }
+@keyframes cT4 { 0%, 72% { color: var(--color-text-secondary); font-size: 0.6rem; } 75%, 97% { color: white; font-size: 0.75rem; } 100% { color: var(--color-text-secondary); font-size: 0.6rem; } }
+
+/* ===========================
+   18. Counter
+   =========================== */
+
+/* Counter — circles roll in/out from center */
+.counter {
+  --cSize: 30px;
+  display: grid;
+  grid-auto-flow: column;
+  place-content: center;
+}
+
+.cCircle {
+  position: relative;
+  width: var(--cSize);
+  height: var(--cSize);
+}
+
+.cCircle::before {
+  content: '';
+  display: block;
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-color: #757371;
+}
+
+/* Minus icon */
+.cMinus {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 46%;
+  height: 46%;
+}
+
+.cMinus::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 18%;
+  background-color: white;
+  border-radius: 999px;
+}
+
+/* Plus icon */
+.cPlus {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 46%;
+  height: 46%;
+}
+
+.cPlus::before,
+.cPlus::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 18%;
+  background-color: white;
+  border-radius: 999px;
+}
+
+.cPlus::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* Left circle (minus): starts rolled into center, rolls out left */
+.cCircle:nth-child(1) {
+  transform: translateX(100%) rotate(90deg);
+  z-index: 1;
+  animation: cRollOutLeft 6s ease-in-out infinite;
+}
+
+/* Right circle (plus): starts rolled into center, rolls out right */
+.cCircle:nth-child(3) {
+  transform: translateX(-100%) rotate(-90deg);
+  z-index: 2;
+  animation: cRollOutRight 6s ease-in-out infinite;
+}
+
+/* Plus circle presses when counter goes 0→1 and 1→2 */
+.cCircle:nth-child(3)::before {
+  animation: cPressPulse 6s ease-in-out infinite;
+}
+
+.cPlus {
+  animation: cPressIcon 6s ease-in-out infinite;
+}
+
+/* Minus circle presses when counter goes 2→1 and 1→0 */
+.cCircle:nth-child(1)::before {
+  animation: cMinusPulse 6s ease-in-out infinite;
+}
+
+.cMinus {
+  animation: cMinusIcon 6s ease-in-out infinite;
+}
+
+/* Number display */
+.cNumWrap {
+  position: relative;
+  width: var(--cSize);
+  height: var(--cSize);
+  overflow: hidden;
+}
+
+.cNumScroll {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: cScroll 6s ease-in-out infinite;
+}
+
+.cNum {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #757371;
+}
+
+.cNum:nth-child(2) { transform: translateY(100%); }
+.cNum:nth-child(3) { transform: translateY(200%); }
+
+/* Roll out: center → position, with overshoot */
+@keyframes cRollOutLeft {
+  0%, 8% { transform: translateX(100%) rotate(90deg); }
+  16% { transform: translateX(-6%) rotate(-6deg); }
+  20%, 80% { transform: translateX(0%) rotate(0deg); }
+  88% { transform: translateX(106%) rotate(96deg); }
+  92%, 100% { transform: translateX(100%) rotate(90deg); }
+}
+
+@keyframes cRollOutRight {
+  0%, 8% { transform: translateX(-100%) rotate(-90deg); }
+  16% { transform: translateX(6%) rotate(6deg); }
+  20%, 80% { transform: translateX(0%) rotate(0deg); }
+  88% { transform: translateX(-106%) rotate(-96deg); }
+  92%, 100% { transform: translateX(-100%) rotate(-90deg); }
+}
+
+/* Number scrolls: 0→1 during unroll, 1→2, 2→1, 1→0 during roll back */
+@keyframes cScroll {
+  0%, 8% { transform: translateY(0%); }
+  16% { transform: translateY(-110%); }
+  20%, 43% { transform: translateY(-100%); }
+  48% { transform: translateY(-210%); }
+  51%, 57% { transform: translateY(-200%); }
+  62% { transform: translateY(-90%); }
+  65%, 80% { transform: translateY(-100%); }
+  88% { transform: translateY(10%); }
+  92%, 100% { transform: translateY(0%); }
+}
+
+/* Plus pressed once at 44% (1→2) */
+@keyframes cPressPulse {
+  0%, 42% { transform: scale(1); }
+  44% { transform: scale(0.85); }
+  47% { transform: scale(1.05); }
+  49%, 100% { transform: scale(1); }
+}
+
+@keyframes cPressIcon {
+  0%, 42% { transform: translate(-50%, -50%); }
+  44% { transform: translate(-50%, -50%) scale(0.75); }
+  47%, 100% { transform: translate(-50%, -50%); }
+}
+
+/* Minus pressed at 58% (2→1) and 78% (1→0) */
+@keyframes cMinusPulse {
+  0%, 57% { transform: scale(1); }
+  59% { transform: scale(0.85); }
+  62% { transform: scale(1.05); }
+  64%, 77% { transform: scale(1); }
+  79% { transform: scale(0.85); }
+  82% { transform: scale(1.05); }
+  84%, 100% { transform: scale(1); }
+}
+
+@keyframes cMinusIcon {
+  0%, 57% { transform: translate(-50%, -50%); }
+  59% { transform: translate(-50%, -50%) scale(0.75); }
+  62%, 77% { transform: translate(-50%, -50%); }
+  79% { transform: translate(-50%, -50%) scale(0.75); }
+  82%, 100% { transform: translate(-50%, -50%); }
+}
+
+/* ===========================
+   19. View Toggle
+   =========================== */
+
+.viewToggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px 8px 10px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  animation: viewBtnPulse 7s ease-in-out infinite;
+}
+
+@keyframes viewBtnPulse {
+  0%, 6% { transform: scaleX(1); }
+  10% { transform: scaleX(1.06); }
+  14%, 56% { transform: scaleX(1); }
+  60% { transform: scaleX(1.06); }
+  64%, 100% { transform: scaleX(1); }
+}
+
+.viewIcon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+
+.viewEl {
+  position: absolute;
+  background: #757371;
+  transition: all 0.3s ease-in-out;
+}
+
+/*
+  3 states:
+  1. 3 bars:  top(0,0,18x4) mid(0,7,18x4) bot(0,14,18x4)  — el4 hidden
+  2. 2 bars:  top(0,0,18x7) bot(0,11,18x7)                 — el2 hidden, el4 hidden
+  3. 4 squares: TL(0,0,7x7) TR(11,0,7x7) BL(0,11,7x7) BR(11,11,7x7)
+*/
+
+/* El 1: top bar → top thick bar → top-left square */
+.viewEl:nth-child(1) { animation: ve1 7s ease-in-out infinite; }
+
+/* El 2: middle bar → hidden → top-right square */
+.viewEl:nth-child(2) { animation: ve2 7s ease-in-out infinite; }
+
+/* El 3: bottom bar → bottom thick bar → bottom-left square */
+.viewEl:nth-child(3) { animation: ve3 7s ease-in-out infinite; }
+
+/* El 4: hidden → hidden → bottom-right square */
+.viewEl:nth-child(4) { animation: ve4 7s ease-in-out infinite; }
+
+@keyframes ve1 {
+  0%, 8%   { left: 0; top: 0; width: 18px; height: 4px; border-radius: 1px; }
+  14%, 20% { left: 0; top: 0; width: 18px; height: 7px; border-radius: 1px; }
+  26%, 58% { left: 0; top: 0; width: 7px; height: 7px; border-radius: 2px; }
+  64%, 70% { left: 0; top: 0; width: 18px; height: 7px; border-radius: 1px; }
+  78%, 100% { left: 0; top: 0; width: 18px; height: 4px; border-radius: 1px; }
+}
+
+@keyframes ve2 {
+  0%, 8%   { left: 0; top: 7px; width: 18px; height: 4px; border-radius: 1px; opacity: 1; }
+  14%, 20% { left: 0; top: 4px; width: 18px; height: 0; border-radius: 1px; opacity: 0; }
+  26%, 58% { left: 11px; top: 0; width: 7px; height: 7px; border-radius: 2px; opacity: 1; }
+  64%, 70% { left: 0; top: 4px; width: 18px; height: 0; border-radius: 1px; opacity: 0; }
+  78%, 100% { left: 0; top: 7px; width: 18px; height: 4px; border-radius: 1px; opacity: 1; }
+}
+
+@keyframes ve3 {
+  0%, 8%   { left: 0; top: 14px; width: 18px; height: 4px; border-radius: 1px; }
+  14%, 20% { left: 0; top: 11px; width: 18px; height: 7px; border-radius: 1px; }
+  26%, 58% { left: 0; top: 11px; width: 7px; height: 7px; border-radius: 2px; }
+  64%, 70% { left: 0; top: 11px; width: 18px; height: 7px; border-radius: 1px; }
+  78%, 100% { left: 0; top: 14px; width: 18px; height: 4px; border-radius: 1px; }
+}
+
+@keyframes ve4 {
+  0%, 8%   { left: 11px; top: 14px; width: 0; height: 0; border-radius: 2px; opacity: 0; }
+  14%, 20% { left: 11px; top: 11px; width: 0; height: 0; border-radius: 2px; opacity: 0; }
+  26%, 58% { left: 11px; top: 11px; width: 7px; height: 7px; border-radius: 2px; opacity: 1; }
+  64%, 70% { left: 11px; top: 11px; width: 0; height: 0; border-radius: 2px; opacity: 0; }
+  78%, 100% { left: 11px; top: 14px; width: 0; height: 0; border-radius: 2px; opacity: 0; }
+}
+
+/* Text area — holds both labels */
+.viewTextArea {
+  position: relative;
+  height: 16px;
+  overflow: hidden;
+}
+
+.viewLabel,
+.viewLabelAlt {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #757371;
+  height: 16px;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.viewLabel {
+  animation: vTextOut 7s ease-in-out infinite;
+}
+
+.viewLabelAlt {
+  animation: vTextIn 7s ease-in-out infinite;
+}
+
+@keyframes vTextOut {
+  0%, 8% { opacity: 1; transform: translateY(0); }
+  14%, 70% { opacity: 0; transform: translateY(-16px); }
+  78%, 100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes vTextIn {
+  0%, 8% { opacity: 0; transform: translateY(0); }
+  14%, 70% { opacity: 1; transform: translateY(-16px); }
+  78%, 100% { opacity: 0; transform: translateY(0); }
+}
+
+/* ===========================
+   20. Follow Button
+   =========================== */
+
+/* Follow button — pill with circle icon on left */
+.followBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 5px 20px 5px 5px;
+  border-radius: 999px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+/* Circle with plus */
+.followShadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 38px;
+  height: 100%;
+  border-radius: 999px;
+  background: #757371;
+  z-index: 0;
+  animation: followShadowAnim 5s ease-in-out infinite;
+}
+
+@keyframes followShadowAnim {
+  /* State 1: matches circle */
+  0%, 8% { width: 28px; height: 28px; top: 5px; left: 5px; }
+  /* State 2: grows to fill pill height */
+  16%, 22% { width: 38px; height: 38px; top: 0; left: 0; }
+  /* State 3: stretches to fill whole pill */
+  34%, 58% { width: 100%; height: 100%; top: 0; left: 0; }
+  /* Back to state 2 */
+  70%, 76% { width: 38px; height: 38px; top: 0; left: 0; }
+  /* Back to state 1 */
+  86%, 100% { width: 28px; height: 28px; top: 5px; left: 5px; }
+}
+
+.followCircle {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #757371;
+  flex-shrink: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Track that holds checkmark + plus, slides inside the circle */
+.followIconTrack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  animation: followIconSlide 5s ease-in-out infinite;
+}
+
+.followCheck {
+  flex-shrink: 0;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.followPlusWrap {
+  position: relative;
+  width: 50%;
+  height: 12px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.followPlusH,
+.followPlusV {
+  position: absolute;
+  background: white;
+  border-radius: 2px;
+}
+
+.followPlusH {
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 2.5px;
+  margin-top: -1.25px;
+  margin-left: -6px;
+}
+
+.followPlusV {
+  top: 50%;
+  left: 50%;
+  width: 2.5px;
+  height: 12px;
+  margin-top: -6px;
+  margin-left: -1.25px;
+}
+
+/* Start at -50% (showing plus). Slide to 0% to show check */
+@keyframes followIconSlide {
+  0%, 22% { transform: translateX(-50%); }
+  30% { transform: translateX(0%); }
+  58% { transform: translateX(0%); }
+  70%, 100% { transform: translateX(-50%); }
+}
+
+.followText {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #757371;
+  white-space: nowrap;
+  z-index: 1;
+  animation: followTextFadeOut 5s ease-in-out infinite;
+}
+
+.followTextActive {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 11px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  z-index: 10;
+  opacity: 0;
+  animation: followTextFadeIn 5s ease-in-out infinite;
+}
+
+@keyframes followTextFadeOut {
+  0%, 28% { opacity: 1; }
+  34%, 58% { opacity: 0; }
+  66%, 100% { opacity: 1; }
+}
+
+@keyframes followTextFadeIn {
+  0%, 30% { opacity: 0; }
+  36%, 56% { opacity: 1; }
+  64%, 100% { opacity: 0; }
+}
