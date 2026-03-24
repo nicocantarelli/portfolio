@@ -61,7 +61,7 @@ function HomeContent({ locale }: { locale: Locale }) {
     { id: 'home', label: t('navigation.home') },
     { id: 'work', label: t('navigation.work') },
     { id: 'services', label: t('navigation.services') },
-    { id: 'testimonials', label: t('navigation.testimonials') },
+    // { id: 'testimonials', label: t('navigation.testimonials') },
     { id: 'about', label: t('navigation.about') },
     { id: 'contact', label: t('navigation.contact') },
   ];
@@ -85,6 +85,9 @@ function HomeContent({ locale }: { locale: Locale }) {
             <Mascot />
             <div className={styles.headerControls}>
               <LanguageToggle />
+              <Link href="/lab" className={styles.labLinkMobile}>
+                {t('navigation.lab')}
+              </Link>
               <ThemeToggle />
             </div>
           </div>
@@ -188,7 +191,7 @@ function HomeContent({ locale }: { locale: Locale }) {
               </FadeIn>
             </section>
 
-            {/* Testimonials */}
+            {/* Testimonials — uncomment when you have real quotes
             <section id="testimonials" className={styles.testimonials}>
               <FadeIn>
                 <h2 className="mono">{t('testimonials.title')}</h2>
@@ -202,6 +205,7 @@ function HomeContent({ locale }: { locale: Locale }) {
                 </div>
               </FadeIn>
             </section>
+            */}
 
             {/* About */}
             <section id="about" className={styles.about}>
