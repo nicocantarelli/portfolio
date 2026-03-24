@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props) {
   });
 
   return {
-    title: t('title'),
+    title: { absolute: t('title') },
     description: t('description'),
     alternates: {
       canonical: `${siteUrl}/${locale}`,
