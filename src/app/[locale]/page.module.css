@@ -73,6 +73,14 @@
   color: var(--color-text);
 }
 
+.newDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #f4694c;
+  margin-left: 2px;
+}
+
 @media (max-width: 900px) {
   .labLinkMobile {
     display: flex;
@@ -108,12 +116,33 @@
   outline-offset: 2px;
 }
 
-.tocLabLink span {
-  transition: transform var(--transition-fast);
+.newBadge {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.4rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #f4694c;
+  letter-spacing: 0.02em;
 }
 
-.tocLabLink:hover span {
-  transform: translateX(2px);
+.newCircle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 42px;
+  height: 18px;
+  color: #f4694c;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: drawCircle 1.5s ease-out 0.5s forwards;
+}
+
+@keyframes drawCircle {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 /* ================================

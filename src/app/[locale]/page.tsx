@@ -100,7 +100,7 @@ function HomeContent({ locale }: { locale: Locale }) {
             <div className={styles.headerControls}>
               <LanguageToggle />
               <Link href="/lab" className={styles.labLinkMobile}>
-                {t('navigation.lab')}
+                {t('navigation.lab')} <span className={styles.newDot} />
               </Link>
               <ThemeToggle />
             </div>
@@ -111,7 +111,13 @@ function HomeContent({ locale }: { locale: Locale }) {
         <div className={styles.layout}>
           <TableOfContents sections={sections}>
             <Link href="/lab" className={styles.tocLabLink}>
-              {t('navigation.lab')} <span>→</span>
+              {t('navigation.lab')}
+              <span className={styles.newBadge}>
+                New
+                <svg className={styles.newCircle} viewBox="0 0 110 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M93 3C97 3.5 102 5.5 104 8C106 10.5 105 14 103 16.5C101 19 96 21 90 22C84 23 76 22 68 20.5C60 19 52 16 46 14C40 12 34 10 28 9C22 8 16 8.5 11 10C6 11.5 3 14 3 16C3 18 6 20 11 21C16 22 24 22 32 21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+              </span>
             </Link>
           </TableOfContents>
 
