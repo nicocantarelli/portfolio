@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# nicocantarelli.com
 
-## Getting Started
+Personal portfolio and component lab built with Next.js 16, featuring interactive UI experiments, CSS micro-interactions, and multilingual support.
 
-First, run the development server:
+## Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Framework**: Next.js 16 (App Router, Turbopack)
+- **Language**: TypeScript
+- **Styling**: CSS Modules, custom properties
+- **i18n**: next-intl (English, Spanish, Italian)
+- **Deployment**: Vercel
+- **Font**: Satoshi + Cascadia Code
+
+## Structure
+
+```
+src/
+  app/
+    [locale]/          # Locale-based routing
+      lab/             # Component playground
+      projects/[slug]/ # Project case studies
+  components/
+    lab/               # Lab demo components
+      CSSMicroInteractions/  # 20+ looping CSS animations
+      ButtonEffects/         # Hover & click effects
+      TextRevealScroll/      # Scroll-driven text reveal
+      ProductCard/           # 3D tilt cards with flip
+      DrawerDemo/            # Bottom/side/nested drawers
+      PageTransitionsDemo/   # Fade, slide, morph transitions
+      AddToCartAnimation/    # Flying item micro-interaction
+      ScrollProductReveal/   # Scroll-driven product showcase
+  i18n/                # Locale config & navigation
+  messages/            # Translation files (en, es, it)
+  data/                # Project data
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Component Lab (`/lab`)
+Interactive demos showcasing frontend techniques — all built with pure CSS and vanilla React, no animation libraries.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **CSS Micro-interactions** — Pagination, toggles, search, radio buttons, hamburger menus, spinners, tabs, counters, view toggles, follow buttons, and more. All loop infinitely with elastic easing.
+- **Button Effects** — Fill, ripple, jelly, glow, underline, scale
+- **Drawers** — Bottom sheet, side panel, nested drawers, form drawer
+- **Product Cards** — 3D perspective tilt, quick view flip
+- **Page Transitions** — Fade, slide, morph with two-phase exit/enter
+- **Text Reveal** — Word-by-word and character-by-character scroll reveal with blur
+- **Add to Cart** — Flying item animation with cart counter bounce
 
-## Learn More
+### Design System
+- Light & dark mode with view transition animation
+- Layered card shadows — inner glow + stacked drop shadows for depth
+- Responsive layout with sidebar navigation on desktop
+- Accessible — focus-visible outlines, semantic HTML, ARIA attributes, keyboard navigation
 
-To learn more about Next.js, take a look at the following resources:
+### Portfolio
+- 5 client project case studies with browser mockups
+- Services, testimonials, about, and contact sections
+- Formspree-powered contact form
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Development
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm install
+npm run dev
+```
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
