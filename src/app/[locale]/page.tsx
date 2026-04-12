@@ -147,7 +147,7 @@ function HomeContent({ locale }: { locale: Locale }) {
             <section id="work" className={styles.work}>
               <h2 className="mono">{t('work.title')}</h2>
               <div className={styles.projects}>
-                {projects.map((project) => (
+                {projects.map((project, index) => (
                   <Link
                     key={project.slug}
                     href={`/projects/${project.slug}`}
@@ -170,6 +170,7 @@ function HomeContent({ locale }: { locale: Locale }) {
                             fill
                             sizes="(max-width: 768px) 100vw, 600px"
                             style={{ objectFit: 'cover', objectPosition: 'top' }}
+                            priority={index < 2}
                           />
                         ) : (
                           <div className={styles.projectPlaceholder}>

@@ -21,8 +21,7 @@
   --color-highlight: rgba(251, 191, 36, 0.3);
 
   /* Typography */
-  --font-body: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'Cascadia Code', 'SF Mono', monospace;
+  /* Font variables are set by next/font on <html> element */
 
   /* Spacing */
   --space-xs: 0.25rem;
@@ -96,7 +95,7 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 15px;
   line-height: 1.6;
   color: var(--color-text);
