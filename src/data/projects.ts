@@ -165,7 +165,7 @@ export const projects: Project[] = [
     longDescription: projectTranslations.en.tashola.longDescription,
     role: projectTranslations.en.tashola.role,
     tech: ['Shopify', 'Liquid', 'JavaScript', 'CSS'],
-    images: ['/projects/tashola/1.png', '/projects/tashola/2.png', '/projects/tashola/1-mobile.png'],
+    images: ['/projects/tashola/1.png', '/projects/tashola/2.png', '/projects/tashola/1-mobile.png', '/projects/tashola/2-mobile.png'],
   },
 ];
 
